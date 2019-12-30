@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+
+    <View
+        android:id="@+id/login_pw_back"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:background="@color/primaryLightColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/panel_search_back"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:background="?attr/selectableItemBackground"
+        android:scaleType="centerInside"
+        android:tint="@color/primaryOppositeColor"
+        app:layout_constraintDimensionRatio="W,1:1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/round_arrow_back_24" />
+
+    <View
+        android:id="@+id/view5"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="6dp"
+        android:background="@drawable/background_search"
+        android:backgroundTint="@color/white"
+        android:paddingTop="0dp"
+        android:paddingBottom="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/panel_search_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/panel_search_back"
+        app:layout_constraintTop_toTopOf="@+id/panel_search_back" />
+
+    <ImageView
+        android:id="@+id/panel_search_clear"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="2dp"
+        android:alpha="1"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="centerInside"
+        android:tint="@color/primaryDarkColor"
+        app:layout_constraintBottom_toBottomOf="@+id/view5"
+        app:layout_constraintDimensionRatio="W,1:1"
+        app:layout_constraintEnd_toEndOf="@+id/view5"
+        app:layout_constraintTop_toTopOf="@+id/view5"
+        app:srcCompat="@drawable/baseline_clear_24" />
+
+    <ImageView
+        android:id="@+id/panel_search_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="0dp"
+        android:alpha="1"
+        android:tint="@color/primaryDarkColor"
+        app:layout_constraintBottom_toBottomOf="@+id/view5"
+        app:layout_constraintStart_toStartOf="@+id/view5"
+        app:layout_constraintTop_toTopOf="@+id/view5"
+        app:srcCompat="@drawable/baseline_search_24" />
+
+
+    <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+        android:id="@+id/panel_search_edit"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@null"
+        android:dropDownAnchor="@id/anchor_dropdown"
+        android:dropDownWidth="match_parent"
+        android:dropDownHeight="wrap_content"
+        android:hint="Search for Tags"
+        android:imeOptions="actionSearch"
+        android:inputType="text"
+        android:popupBackground="@null"
+        android:textColor="@color/primaryTextColor"
+        android:textColorHint="@color/primaryDarkColor"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/view5"
+        app:layout_constraintEnd_toStartOf="@+id/panel_search_clear"
+        app:layout_constraintStart_toEndOf="@+id/panel_search_icon"
+        app:layout_constraintTop_toTopOf="@+id/view5" />
+
+
+    <View
+        android:id="@+id/anchor_dropdown"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        app:layout_constraintBottom_toBottomOf="@+id/login_pw_back" />
+
+    <androidx.constraintlayout.widget.Group
+        android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:constraint_referenced_ids="panel_search_back,panel_search_icon,panel_search_clear,view5,panel_search_edit,login_pw_back" />
+
+
+</merge>

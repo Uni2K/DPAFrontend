@@ -1,0 +1,70 @@
+<resources>
+    <string name="app_name">Slick</string>
+
+
+    <string name="pref_sort">sortpref</string>
+    <string name="pref_minimumvotes">minimumvotespref</string>
+    <string name="pref_filter">filterpref</string>
+
+    <string name="default_questiontext">Is this an example question?</string>
+    <string name="default_questionanswer1">Exampleanswer1</string>
+    <string name="default_questionanswer2">Exampleanswer1</string>
+    <string name="default_questioncontext">This question should help you to understand the basics of the question asking. If you have any more questions contact the support by clicking the top right icon.</string>
+
+    <string name="default_info_context">Tell us some more about your question…</string>
+    <string name="default_info_text">Type your question below!</string>
+    <string name="default_info_answer_both">Insert the available answers!</string>
+    <string name="default_info_answer_single">There have to be at least 2 valid answers!!</string>
+
+
+
+
+
+    <string name="default_info_done">Thank you, you can now process to other input fields!</string>
+    <string name="hour">hour</string>
+    <string name="day">day</string>
+    <string name="week">week</string>
+    <string name="automatic">Auto</string>
+    <string name="month">month</string>
+
+
+
+    <string name="ERROR_UNDEFINED">Unknown error</string>
+    <string name="ERROR_TOKENWRONG">Login invalid</string>
+    <string name="ERROR_SOCKET">Server error</string>
+    <string name="ERROR_SOCKET_TIMEOUT">Server timeout</string>
+    <string name="ERROR_NOCONNECTION">No Internet connection</string>
+    <string name="ERROR_WRONGPW">Wrong password</string>
+    <string name="ERROR_NOUSERFOUND">No User found with this credentials</string>
+    <string name="ERROR_DUPLICATEMAIL">Email already registered</string>
+    <string name="ERROR_DUPLICATENAME">Username already registered</string>
+    <string name="ERROR_NOCONTENT">There is nothing to see here at the moment</string>
+    <string name="ERROR_NOQUESTION">Question could not be found</string>
+    <string name="ERROR_ANSWERINDEX">Error while voting</string>
+    <string name="ERROR_UNDEFINED_VOTING">Some error occurred during voting</string>
+
+
+
+
+    <string name="ERROR_UNDEFINED_HINT">Try to restart the app</string>
+    <string name="ERROR_TOKENWRONG_HINT">Try to restart the app</string>
+    <string name="ERROR_SOCKET_HINT">Try to restart the app</string>
+    <string name="ERROR_SOCKET_TIMEOUT_HINT">Try to restart the app</string>
+    <string name="ERROR_NOCONNECTION_HINT">Try to restart the app</string>
+    <string name="ERROR_WRONGPW_HINT">Try to restart the app</string>
+    <string name="ERROR_NOUSERFOUND_HINT">Try to restart the app</string>
+    <string name="ERROR_DUPLICATEMAIL_HINT">Try to restart the app</string>
+    <string name="ERROR_DUPLICATENAME_HINT">Try to restart the app</string>
+    <string name="ERROR_NOCONTENT_HINT">Look later maybe</string>
+    <string name="ERROR_NOQUESTION_HINT">It may got removed or is temporary not available</string>
+    <string name="ERROR_ANSWERINDEX_HINT">The answer got removed or is temporary not available</string>
+    <string name="ERROR_UNDEFINED_VOTING_HINT">Maybe try the next one :)</string>
+
+
+
+
+
+
+
+
+</resources>

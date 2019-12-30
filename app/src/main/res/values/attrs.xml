@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SpinnerPreference">
+        <attr name="entries" />
+        <attr name="entryValues" />
+    </declare-styleable>
+
+
+    <attr name="flow_horizontalSeparator"/>
+    <attr name="flow_verticalSeparator"/>
+    <attr name="motionProgress"/>
+    <attr name="waveDecay"/>
+    <attr name="motionPathRotate"/>
+    <attr name="duration"/>
+
+
+    <attr format="color" name="dotsColor"/>
+    <attr format="color" name="selectedDotColor"/>
+    <attr format="color" name="dotsStrokeColor"/>
+    <attr format="dimension" name="dotsSize"/>
+    <attr format="float" name="dotsWidthFactor"/>
+    <attr format="dimension" name="dotsSpacing"/>
+    <attr format="dimension" name="dotsCornerRadius"/>
+    <attr format="dimension" name="dotsStrokeWidth"/>
+    <attr format="float" name="stiffness"/>
+    <attr format="float" name="dampingRatio"/>
+    <attr format="boolean" name="progressMode"/>
+
+
+    <declare-styleable name="DurationPicker">
+        <attr name="thumb" format="reference" />
+        <attr name="thumbOffset" format="dimension" />
+        <attr name="max" format="integer" />
+        <attr name="progressWidth" format="dimension" />
+        <attr name="arcWidth" format="dimension" />
+        <attr name="progress" format="float" />
+        <attr name="rotation" format="integer" />
+        <attr name="startAngle" format="integer" />
+        <attr name="sweepAngle" format="integer" />
+        <attr name="arcColor" format="color" />
+        <attr name="progressColor" format="color" />
+        <attr name="roundEdges" format="boolean" />
+        <attr name="touchInside" format="boolean" />
+        <attr name="clockwise" format="boolean" />
+        <attr name="enabled" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="CircularSeekBarStyle">
+        <attr name="circularSeekBarStyle" format="reference"></attr>
+    </declare-styleable>
+
+    <declare-styleable name="Widget_MaterialComponents_TextInputLayout_OutlinedBox">
+        <attr name="textInPutStyle" format="reference" />
+    </declare-styleable>
+
+        <declare-styleable name="customToggleButton">
+            <attr name="ctext" format="string"/>
+            <attr name="cicon" format="reference"/>
+        </declare-styleable>
+    <declare-styleable name="customActionButton">
+        <attr name="abtext" format="string"/>
+        <attr name="abicon" format="reference"/>
+    </declare-styleable>
+</resources>

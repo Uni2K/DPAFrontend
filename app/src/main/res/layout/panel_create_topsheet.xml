@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <View
+        android:id="@+id/highdrop_back"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:background="@drawable/bottomsheet_top"
+        android:elevation="@dimen/elevation_backdrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/c_preview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+
+            android:layout_marginEnd="16dp"
+            android:elevation="@dimen/elevation_backdrop_content"
+            app:layout_constraintBottom_toBottomOf="@id/highdrop_back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline12"
+            app:layout_constraintVertical_bias="0.0"
+            android:layout_marginBottom="4dp"
+            android:background="@color/white"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="4dp"
+            app:cardMaxElevation="4dp"
+          >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/c"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="120dp">
+
+                <ImageView
+                    android:id="@+id/medium_tagicon"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/tag_large"
+                    android:backgroundTint="#222222"
+                    android:elevation="2dp"
+                    android:padding="4dp"
+                    android:scaleType="centerInside"
+                    android:tint="@color/white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/medium_question"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="12dp"
+                    android:elevation="10dp"
+                    android:maxLines="1"
+                    android:outlineProvider="none"
+                    android:text="@string/default_questiontext"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/medium_tagicon"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/medium_tagicon"
+                    app:layout_constraintTop_toTopOf="@+id/medium_tagicon" />
+
+                <TextView
+                    android:id="@+id/medium_context"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:elevation="10dp"
+                    android:maxLines="3"
+                    android:outlineProvider="none"
+                    android:text="@string/default_questioncontext"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/medium_tagicon"
+                    app:layout_constraintTop_toBottomOf="@+id/medium_tagicon" />
+
+                <TextView
+                    android:id="@+id/medium_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="4dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:elevation="10dp"
+                    android:gravity="center_vertical"
+                    android:outlineProvider="none"
+                    android:paddingLeft="4dp"
+                    android:text="@string/default_questionanswer1"
+                    android:textColor="@android:color/black"
+                    app:layout_constraintHeight_min="42dp"
+                    app:layout_constraintStart_toStartOf="@+id/medium_context"
+                    app:layout_constraintTop_toBottomOf="@+id/medium_context" />
+
+                <TextView
+                    android:id="@+id/medium_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="4dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:elevation="10dp"
+                    android:gravity="center_vertical"
+                    android:outlineProvider="none"
+                    android:paddingLeft="4dp"
+                    android:text="@string/default_questionanswer2"
+                    android:textColor="@android:color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHeight_min="42dp"
+                    app:layout_constraintStart_toStartOf="@+id/medium_left"
+                    app:layout_constraintTop_toBottomOf="@id/medium_left" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.8" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="@dimen/toolbar_height" />
+
+    <Space
+        android:id="@+id/space3"
+        android:layout_width="wrap_content"
+        android:layout_height="16dp"
+        app:layout_constraintEnd_toEndOf="@id/c_preview"
+        app:layout_constraintStart_toStartOf="@id/c_preview"
+        app:layout_constraintTop_toBottomOf="@+id/c_status_text" />
+
+    <TextView
+        android:id="@+id/c_status_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:drawableLeft="@drawable/outline_info_24"
+        android:drawablePadding="8dp"
+        android:drawableTint="@color/white"
+        android:elevation="@dimen/elevation_backdrop"
+        android:gravity="center_vertical"
+        android:outlineProvider="none"
+        android:paddingLeft="16dp"
+        android:paddingTop="4dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="4dp"
+        android:text="You need to select a topic!"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/c_preview" />
+
+    <com.project.app.CustomViews.DurationPicker
+        android:id="@+id/durationPicker"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:elevation="@dimen/elevation_backdrop_content"
+        android:outlineProvider="none"
+        android:padding="60dp"
+        app:layout_constraintBottom_toTopOf="@+id/c_send_full"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/c_status_text"
+        app:layout_constraintWidth_percent="0.7"></com.project.app.CustomViews.DurationPicker>
+
+    <TextView
+        android:id="@+id/dp_subtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/elevation_backdrop_content"
+        android:includeFontPadding="false"
+        android:outlineProvider="none"
+        android:text="@string/hour"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/durationPicker"
+        app:layout_constraintEnd_toEndOf="@+id/durationPicker"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/durationPicker"
+        app:layout_constraintTop_toBottomOf="@+id/dp_text"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/dp_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/elevation_backdrop_content"
+        android:includeFontPadding="false"
+        android:outlineProvider="none"
+        android:text="1"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textsize_header"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/dp_subtext"
+        app:layout_constraintEnd_toEndOf="@+id/durationPicker"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/durationPicker"
+        app:layout_constraintTop_toTopOf="@id/durationPicker"
+        app:layout_constraintVertical_bias="0.41000003"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/c_send_full"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_50_border"
+        android:drawableRight="@drawable/baseline_send_24"
+        android:drawablePadding="8dp"
+        android:drawableTint="@color/white"
+        android:elevation="@dimen/elevation_backdrop_content"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:gravity="center|center_vertical"
+        android:outlineProvider="none"
+        android:paddingLeft="16dp"
+        android:paddingTop="4dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="4dp"
+        android:text="Send"
+        android:textColor="@color/white"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/highdrop_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/durationPicker" />
+
+    <View
+        android:id="@+id/v"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/toolbar_height"
+        android:background="@drawable/bottomsheet_top"
+        android:elevation="@dimen/elevation_backdrop_content"
+        android:outlineProvider="none"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/c_tabs"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/tablayout_background"
+        android:clickable="true"
+        android:elevation="@dimen/elevation_backdrop_content"
+        android:outlineProvider="none"
+        app:layout_constraintBottom_toTopOf="@+id/guideline12"
+        app:layout_constraintEnd_toStartOf="@+id/c_send"
+        app:layout_constraintStart_toEndOf="@+id/c_back"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tabBackground="@drawable/tablayout_selector"
+        app:tabIndicatorHeight="0dp"
+        app:tabMode="auto"
+        app:tabPaddingEnd="16dp"
+        app:tabPaddingStart="16dp"
+        app:tabRippleColor="@null"
+        app:tabSelectedTextColor="@color/secondaryDarkColor"
+
+        app:tabTextAppearance="@style/TabTextAppearance"
+        app:tabTextColor="@color/white" />
+
+    <ImageView
+        android:id="@+id/c_send"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:elevation="@dimen/elevation_backdrop_content"
+        android:outlineProvider="none"
+        android:scaleType="centerInside"
+        android:tint="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/guideline12"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_send_24" />
+
+    <ImageView
+        android:id="@+id/c_back"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:elevation="@dimen/elevation_backdrop_content"
+        android:outlineProvider="none"
+        android:scaleType="centerInside"
+        android:tint="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/guideline12"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/round_arrow_back_24" />
+
+    <Space
+        android:id="@+id/sp"
+        android:layout_width="wrap_content"
+        android:layout_height="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/c_send_full"
+        app:layout_constraintStart_toStartOf="@+id/c_send_full"
+        app:layout_constraintTop_toBottomOf="@+id/c_send_full" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/half_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="dp_subtext,dp_text,durationPicker,c_send_full" />
+</merge>

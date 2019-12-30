@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/hintBackgroundColor"
+    tools:parentTag="android.widget.LinearLayout">
+
+
+    <TextView
+        android:id="@+id/bottom_idle_left"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:drawableTop="@drawable/baseline_history_24"
+        android:drawableTint="@color/primaryOppositeColor"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:gravity="center_horizontal"
+        android:text="History"
+        android:textColor="@color/primaryOppositeColor"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/bottom_idle_left"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/bottom_idle_left"
+        app:layout_constraintTop_toBottomOf="@+id/bottom_idle_left"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/bottom_idle_mid"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:drawableTop="@drawable/baseline_search_24"
+        android:drawableTint="@color/primaryOppositeColor"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:gravity="center_horizontal"
+        android:text="@android:string/search_go"
+        android:textColor="@color/primaryOppositeColor"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/bottom_idle_mid"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/bottom_idle_mid"
+        app:layout_constraintTop_toBottomOf="@+id/bottom_idle_mid"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/bottom_idle_right"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:drawableTop="@drawable/baseline_clear_24"
+        android:drawableTint="@color/primaryOppositeColor"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:gravity="center_horizontal"
+        android:text="Clear All"
+        android:textColor="@color/primaryOppositeColor"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/bottom_idle_right"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/bottom_idle_right"
+        app:layout_constraintTop_toBottomOf="@+id/bottom_idle_right"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+</merge>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/settings_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Minimum Votes"
+        android:textColor="@color/primaryOppositeColor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <SeekBar
+        android:id="@+id/settings_mv_seekbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:paddingStart="8dp"
+        android:progressTint="@color/secondaryColor"
+        android:thumbTint="@color/secondaryDarkColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/settings_mv_text"
+        app:layout_constraintStart_toStartOf="@+id/settings_header"
+        app:layout_constraintTop_toBottomOf="@+id/settings_header" />
+
+    <TextView
+        android:id="@+id/settings_mv_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="200+"
+        android:textColor="@color/primaryOppositeColor"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/settings_mv_seekbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/settings_mv_seekbar" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

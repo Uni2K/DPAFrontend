@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/flip_wrapper"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/info_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primaryColor"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+
+    <View
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/toolbar_height"
+        android:background="@color/secondaryDarkColor"
+        android:clickable="false"
+        android:elevation="4dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/panel_header_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:elevation="10dp"
+        android:outlineProvider="none"
+        android:text="Edit Account"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/account_back"
+        app:layout_constraintStart_toEndOf="@+id/account_back"
+        app:layout_constraintTop_toTopOf="@+id/account_back" />
+
+    <ImageView
+        android:id="@+id/account_save"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:elevation="10dp"
+        android:outlineProvider="none"
+        android:scaleType="centerInside"
+        android:tint="@color/white"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_done_24" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/cd_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/account_changepw"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include" />
+
+    <TextView
+        android:id="@+id/account_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/button_light"
+        android:elevation="3dp"
+        android:foreground="?attr/selectableItemBackground"
+        android:paddingLeft="@dimen/padding_button_lr"
+        android:paddingTop="@dimen/padding_button_tb"
+        android:paddingRight="@dimen/padding_button_lr"
+        android:paddingBottom="@dimen/padding_button_tb"
+        android:text="Delete Account"
+        android:textColor="@color/secondaryDarkColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/account_logoutall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/button_dark"
+        android:foreground="?attr/selectableItemBackground"
+        android:paddingLeft="@dimen/padding_button_lr"
+        android:paddingTop="@dimen/padding_button_tb"
+        android:paddingRight="@dimen/padding_button_lr"
+        android:paddingBottom="@dimen/padding_button_tb"
+        android:text="Logout everywhere"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/account_logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/button_dark"
+        android:foreground="?attr/selectableItemBackground"
+        android:paddingLeft="@dimen/padding_button_lr"
+        android:paddingTop="@dimen/padding_button_tb"
+        android:paddingRight="@dimen/padding_button_lr"
+        android:paddingBottom="@dimen/padding_button_tb"
+        android:text="Logout on this device"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/account_logoutall"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/account_changepw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/button_dark"
+        android:foreground="?attr/selectableItemBackground"
+        android:paddingLeft="@dimen/padding_button_lr"
+        android:paddingTop="@dimen/padding_button_tb"
+        android:paddingRight="@dimen/padding_button_lr"
+        android:paddingBottom="@dimen/padding_button_tb"
+        android:text="Change password"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/account_logout"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/account_back"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:elevation="200dp"
+        android:outlineProvider="none"
+        android:scaleType="centerInside"
+        android:tint="@color/white"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/round_arrow_back_24" />
+
+</androidx.constraintlayout.widget.ConstraintLayout></androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

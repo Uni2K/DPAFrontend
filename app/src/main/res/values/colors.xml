@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primaryColor">#FFFFFF</color>
+    <color name="primaryOppositeColor">#222222</color>
+
+    <color name="rippleColor">#E7E3E3</color>
+
+    <color name="primaryLightColor">#A4EBEAEA</color>
+    <color name="primaryDarkColor">#A5A8A8</color>
+    <color name="secondaryColor">#1DA5FF</color>
+    <color name="secondaryLightColor">#5eb8ff</color>
+    <color name="secondaryDarkColor">#465B65</color>
+    <color name="primaryTextColor">#000000</color>
+    <color name="primaryTextColorStep1">#2C2C2C</color>
+
+    <color name="hintColor">#DAD6D6</color>
+    <color name="hintBackgroundColor">#F3EEEE</color>
+
+
+    <color name="thirdColor">#FF4A00</color>
+    <color name="thirdDarkColor">#991301</color>
+    <color name="thirdLightColor">#FF9900</color>
+
+
+    <color name="chipBackgroundIdle">#C7C6C6</color>
+
+    <color name="activated">@color/favoriteColor</color>
+
+
+
+    <color name="colorAccent">#D81B60</color>
+
+
+    <color name="white">#ffffff</color>
+
+
+    <color name="color_a2">#000</color>
+    <color name="color_a1">#00C853</color>
+
+
+    <color name="favoriteColor">#E53935</color>
+
+    <color name="answerActivated">@color/favoriteColor</color>
+
+    <color name="divider">#BDBDBD</color>
+
+    <color name="conditionDone">#A666BB6A</color>
+    <color name="conditionNotDone">#E53935</color>
+    <color name="answerBackground">#DBDBDB</color>
+    <color name="timestampColor">#8F8F8F</color>
+
+    <color name="indicatorColor1">#FF5722</color>
+    <color name="indicatorColor2">#4CAF50</color>
+    <color name="indicatorColor3">#009688</color>
+    <color name="indicatorColor4">#9C27B0</color>
+
+    <color name="markerColor">#FFFFFF</color>
+    <color name="gradientFullview">#465B65</color>
+    <color name="skeletonColor">#B9B8B8</color>
+    <color name="editEnabled">#FFCCBC</color>
+
+
+</resources>

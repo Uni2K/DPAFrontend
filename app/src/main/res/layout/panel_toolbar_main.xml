@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:background="@color/primaryColor"
+        tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+
+    <View
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/toolbar_height"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/main_account"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:elevation="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_account_circle_24" />
+
+    <ProgressBar
+        android:id="@+id/indicator_sync_update"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="33dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="0dp"
+        android:indeterminate="true"
+        android:indeterminateBehavior="cycle"
+        app:layout_constraintBottom_toBottomOf="@+id/main_account"
+        app:layout_constraintEnd_toEndOf="@+id/main_account"
+        app:layout_constraintStart_toStartOf="@+id/main_account"
+        app:layout_constraintTop_toTopOf="@+id/main_account" />
+
+    <ProgressBar
+        android:id="@+id/indicator_sync_content"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="0dp"
+        android:indeterminate="true"
+        android:indeterminateBehavior="cycle"
+        android:rotation="90"
+        app:layout_constraintBottom_toBottomOf="@+id/main_account"
+        app:layout_constraintEnd_toEndOf="@+id/main_account"
+        app:layout_constraintStart_toStartOf="@+id/main_account"
+        app:layout_constraintTop_toTopOf="@+id/main_account" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/toolbar"
+            app:srcCompat="@drawable/logo" />
+
+    <ImageView
+        android:id="@+id/search_sheet"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="centerInside"
+        android:tint="@color/primaryOppositeColor"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_search_24" />
+
+</merge>

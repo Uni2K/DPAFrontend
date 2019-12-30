@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/full_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:background="@color/white"
+        android:contentInsetStart="0dp"
+        android:contentInsetLeft="0dp"
+        android:contentInsetEnd="0dp"
+        android:contentInsetRight="0dp"
+        android:elevation="@dimen/elevation_backdrop"
+        app:contentInsetEnd="0dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetRight="0dp"
+        app:contentInsetStart="0dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteY="16dp">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="Poll"
+                android:textColor="@color/primaryOppositeColor"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/full_avatar"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                app:srcCompat="@drawable/baseline_account_circle_24" />
+
+            <TextView
+                android:id="@+id/full_username"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="8dp"
+                android:layout_toLeftOf="@id/full_avatar"
+                android:gravity="center_vertical"
+                android:text="Generator"
+                android:textColor="@color/primaryOppositeColor"
+                android:textStyle="italic" />
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/toolbar_height"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/motion"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:paddingBottom="12dp">
+
+
+            <TextView
+                android:id="@+id/full_question"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="12dp"
+                android:text="Wie gehts denn heute?"
+                android:textColor="@color/primaryOppositeColor"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/full_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="23:2019 223"
+                android:textColor="@color/timestampColor"
+                android:textSize="12sp"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="@+id/full_question"
+                app:layout_constraintTop_toBottomOf="@+id/full_question" />
+
+            <ImageView
+                android:id="@+id/full_stat1_c"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:tint="@color/gradientFullview"
+                app:layout_constraintEnd_toStartOf="@+id/full_stat2_c"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/full_time"
+                app:srcCompat="@drawable/baseline_whatshot_24" />
+
+            <TextView
+                android:id="@+id/full_stat1_t"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3020"
+                android:textColor="@color/gradientFullview"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@+id/full_stat1_c"
+                app:layout_constraintStart_toStartOf="@+id/full_stat1_c"
+                app:layout_constraintTop_toBottomOf="@+id/full_stat1_c" />
+
+            <ImageView
+                android:id="@+id/full_stat2_c"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tint="@color/gradientFullview"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/full_stat1_c"
+                app:layout_constraintTop_toTopOf="@+id/full_stat1_c"
+                app:srcCompat="@drawable/baseline_category_24" />
+
+            <TextView
+                android:id="@+id/full_stat2_t"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Programming"
+                android:textColor="@color/gradientFullview"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@+id/full_stat2_c"
+                app:layout_constraintStart_toStartOf="@+id/full_stat2_c"
+                app:layout_constraintTop_toBottomOf="@+id/full_stat2_c" />
+
+            <TextView
+                android:id="@+id/full_context"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="Lorem ipsum dolor sit amet, eget blandit ultrices ultrices felis sed aenean, tristique nostra commodo a venenatis, wisi a pulvinar scelerisque massa ac vitae. Nec m sean habitasse gravida malesuada semper nascetur maecenas, cum felis quis in diam integer libero, laoreet proin. Nec m sean habitasse gravida malesuada semper nascetur maecenas, cum felis quis in diam integer libero, laoreet proin.Nec m sean habitasse gravida malesuada semper nascetur maecenas, cum felis quis in diam integer libero, laoreet proin."
+                android:textColor="@color/primaryOppositeColor"
+                app:layout_constraintEnd_toEndOf="@+id/full_question"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/full_time"
+                app:layout_constraintTop_toBottomOf="@+id/full_stat1_t" />
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/full_chart"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="6dp"
+                android:minHeight="200dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/full_context"></com.github.mikephil.charting.charts.LineChart>
+
+            <ProgressBar
+                android:id="@+id/full_progressbar"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:elevation="4dp"
+                android:indeterminateTint="@color/gradientFullview"
+                app:layout_constraintBottom_toBottomOf="@+id/full_chart"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintStart_toStartOf="@+id/full_chart"
+                app:layout_constraintTop_toTopOf="@+id/full_chart" />
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/answerContainer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="8dp"
+                android:animateLayoutChanges="true"
+                android:background="@color/hintColor"
+                android:elevation="6dp"
+                android:visibility="visible"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="6dp"
+                app:cardMaxElevation="6dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/full_chart">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:paddingBottom="8dp">
+
+                    <ImageView
+                        android:id="@+id/full_timelapse"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_marginStart="6dp"
+                        android:layout_marginTop="6dp"
+                        android:tint="@color/gradientFullview"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/baseline_timelapse_24" />
+
+                    <TextView
+                        android:id="@+id/full_expiration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="3dp"
+                        android:text="TextView"
+                        android:textColor="@color/gradientFullview"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/full_timelapse"
+                        app:layout_constraintStart_toEndOf="@+id/full_timelapse"
+                        app:layout_constraintTop_toTopOf="@+id/full_timelapse" />
+
+                    <ImageView
+                        android:id="@+id/full_voteicon"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_marginStart="24dp"
+                        android:tint="@color/gradientFullview"
+                        app:layout_constraintBottom_toBottomOf="@+id/full_timelapse"
+                        app:layout_constraintStart_toEndOf="@+id/full_expiration"
+                        app:layout_constraintTop_toTopOf="@+id/full_timelapse"
+                        app:srcCompat="@drawable/baseline_how_to_vote_24" />
+
+                    <TextView
+                        android:id="@+id/full_votes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="3dp"
+                        android:text="TextView"
+                        android:textColor="@color/gradientFullview"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/full_voteicon"
+                        app:layout_constraintStart_toEndOf="@+id/full_voteicon"
+                        app:layout_constraintTop_toTopOf="@+id/full_voteicon" />
+
+                    <com.project.app.CustomViews.PresetAnswer
+                        android:id="@+id/answer1"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/height_answer"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="12dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/full_voteicon">
+
+                    </com.project.app.CustomViews.PresetAnswer>
+
+                    <com.project.app.CustomViews.PresetAnswer
+                        android:id="@+id/answer2"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/height_answer"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="12dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/answer1">
+
+                    </com.project.app.CustomViews.PresetAnswer>
+
+                    <com.project.app.CustomViews.PresetAnswer
+                        android:id="@+id/answer3"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/height_answer"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="12dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/answer2">
+
+                    </com.project.app.CustomViews.PresetAnswer>
+
+                    <com.project.app.CustomViews.PresetAnswer
+                        android:id="@+id/answer4"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginBottom="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/answer3">
+
+                    </com.project.app.CustomViews.PresetAnswer>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</RelativeLayout>
+
+
+
+
+
+

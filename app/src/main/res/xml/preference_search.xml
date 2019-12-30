@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+        xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <com.project.app.Preferences.SortPreference
+             android:key="@string/pref_sort" android:textColor="#000"
+            app:iconSpaceReserved="false"
+            android:text="sdsd"  >
+
+    </com.project.app.Preferences.SortPreference>
+
+    <com.project.app.Preferences.MinimumvotesPreference
+        android:key="@string/pref_minimumvotes" android:textColor="#000"
+        app:iconSpaceReserved="false"
+        android:text=""  >
+
+    </com.project.app.Preferences.MinimumvotesPreference>
+    <com.project.app.Preferences.FilterPreference
+        android:key="@string/pref_filter" android:textColor="#000"
+        app:iconSpaceReserved="false"
+        android:text=""  ></com.project.app.Preferences.FilterPreference>
+</PreferenceScreen>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/hintBackgroundColor"
+    tools:parentTag="android.widget.RelativeLayout">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/top_collapsed_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_toLeftOf="@id/top_collapsed_icon"
+        android:gravity="center_vertical"
+        android:text="Subject"
+        android:textColor="@color/primaryOppositeColor" />
+
+    <ImageView
+        android:id="@+id/top_collapsed_icon"
+        android:layout_width="@dimen/toolbar_height"
+        android:layout_height="@dimen/toolbar_height"
+        android:layout_alignParentRight="true"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="centerInside"
+        android:tint="@color/primaryOppositeColor"
+        app:srcCompat="@drawable/baseline_expand_more_24" />
+
+</merge>

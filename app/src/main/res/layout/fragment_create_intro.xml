@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/create_intro"
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent"
+    android:background="@color/secondaryColor">
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="@dimen/toolbar_height" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/info_height"
+        android:background="@color/secondaryDarkColor"
+        app:layout_constraintBottom_toTopOf="@+id/c_intro_switch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/c_intro_header2" />
+
+    <com.project.app.CustomViews.ActionButton
+        android:id="@+id/c_intro_start"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/shape_50_border"
+        android:drawableRight="@drawable/baseline_send_24"
+        android:drawablePadding="12dp"
+        android:drawableTint="@color/white"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:gravity="center|center_vertical"
+        android:paddingLeft="24dp"
+        android:paddingTop="6dp"
+        android:paddingRight="24dp"
+        android:paddingBottom="6dp"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:abicon="@drawable/baseline_send_24"
+        app:abtext="Start Creating"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/c_intro_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="CREATE\nYOUR\nOWN"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textsize_header"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline12" />
+
+    <TextView
+        android:id="@+id/c_intro_header2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="POLL"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textsize_header"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/c_intro_header"
+        app:layout_constraintTop_toBottomOf="@+id/c_intro_header" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/baseline_info_24"
+        android:drawablePadding="8dp"
+        android:drawableTint="@color/white"
+        android:text="This small guide while help you  to create your first Question!"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view"
+        app:layout_constraintWidth_percent="0.8" />
+
+    <TextView
+        android:id="@+id/c_intro_tos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:text="Accept Terms of Usage    "
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/c_intro_switch"
+        app:layout_constraintEnd_toStartOf="@+id/c_intro_switch"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/c_intro_switch" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/c_intro_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawablePadding="8dp"
+        android:switchPadding="16dp"
+        android:textColor="@color/white"
+        android:theme="@style/SCBSwitch"
+        app:layout_constraintBottom_toTopOf="@+id/c_intro_start"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@+id/c_intro_tos"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
+
+    <ImageView
+        android:id="@+id/c_intro_back"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:elevation="@dimen/elevation_backdrop_content"
+        android:outlineProvider="none"
+        android:scaleType="centerInside"
+        android:tint="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/guideline12"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/round_arrow_back_24" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

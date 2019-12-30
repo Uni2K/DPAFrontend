@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+       xmlns:tools="http://schemas.android.com/tools"
+       tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <View
+            android:id="@+id/background_content"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:background="@color/primaryColor"
+            android:elevation="@dimen/elevation_sheet_back"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/background_header" />
+
+    <View
+        android:id="@+id/background_header"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/toolbar_height"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/background_backdrop"
+        android:backgroundTint="@color/white"
+        android:elevation="4dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ViewFlipper
+        android:id="@+id/main_viewflipper"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/toolbar_height"
+        android:layout_marginTop="2dp"
+        android:elevation="10dp"
+        android:outlineProvider="none"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigationView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/toolbar_height"
+            android:layout_marginTop="4dp"
+
+            android:background="@drawable/background_backdrop"
+            app:elevation="0dp"
+            app:itemIconSize="22dp"
+            app:itemIconTint="@color/bnv"
+            app:itemTextColor="@color/bnv"
+            app:labelVisibilityMode="labeled"
+
+            app:menu="@menu/bnv_main" />
+
+        <include
+            layout="@layout/bottomsheet_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </ViewFlipper>
+
+    <FrameLayout
+        android:id="@+id/fr"
+        android:layout_width="0dp"
+        android:layout_height="400dp"
+        android:elevation="@dimen/elevation_sheet_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/main_viewflipper">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </FrameLayout>
+
+</merge>
+

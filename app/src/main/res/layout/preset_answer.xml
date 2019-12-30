@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/pr_foreground"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height_answer"
+        android:layout_marginEnd="4dp"
+        android:background="@drawable/background_answer"
+        android:foreground="?attr/selectableItemBackground"
+        android:scaleX="1"
+        android:transformPivotX="0px"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/spacey"
+        app:layout_constraintStart_toEndOf="@+id/pr_indicator"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/pr_indicator"
+        android:layout_width="8dp"
+        android:layout_height="@dimen/height_answer"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/pr_foreground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/pr_foreground" />
+
+    <View
+        android:id="@+id/pr_blue"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height_answer"
+        android:layout_marginEnd="4dp"
+        android:background="@drawable/shape_5"
+        android:backgroundTint="@color/secondaryColor"
+        app:layout_constraintBottom_toBottomOf="@+id/pr_foreground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/spacey"
+        app:layout_constraintTop_toTopOf="@+id/pr_foreground" />
+
+    <ImageView
+        android:id="@+id/pr_selected"
+        android:layout_width="0dp"
+        android:layout_height="16dp"
+        android:layout_marginEnd="4dp"
+        android:background="@drawable/shape_round"
+        android:clickable="false"
+        android:padding="3dp"
+        android:tint="@color/primaryOppositeColor"
+        app:layout_constraintBottom_toBottomOf="@+id/pr_foreground"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@id/pr_blue"
+        app:layout_constraintEnd_toStartOf="@+id/pr_percentext"
+        app:layout_constraintTop_toTopOf="@+id/pr_foreground"
+        app:srcCompat="@drawable/baseline_done_24" />
+
+    <TextView
+        android:id="@+id/pr_percentext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="80%"
+        android:textColor="@color/white"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/pr_foreground"
+        app:layout_constraintEnd_toStartOf="@+id/spacey_right"
+        app:layout_constraintTop_toTopOf="@+id/pr_foreground" />
+
+    <View
+        android:id="@+id/pr_cover"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height_answer"
+        android:background="@drawable/background_answer"
+        android:foreground="?attr/selectableItemBackground"
+        android:scaleX="1"
+        android:transformPivotX="0px"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/pr_indicator"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/pr_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:clickable="false"
+        android:text="@string/default_questionanswer1"
+        android:textColor="@color/primaryOppositeColor"
+        app:layout_constraintBottom_toBottomOf="@+id/pr_foreground"
+        app:layout_constraintStart_toStartOf="@id/pr_foreground"
+        app:layout_constraintTop_toTopOf="@+id/pr_foreground" />
+
+    <Space
+        android:id="@+id/spacey"
+        android:layout_width="4dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/pr_selected"
+        app:layout_constraintEnd_toStartOf="@+id/pr_selected"
+        app:layout_constraintTop_toTopOf="@+id/pr_selected" />
+
+    <Space
+        android:id="@+id/spacey_right"
+        android:layout_width="8dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/pr_percentext"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/pr_percentext" />
+
+    <ProgressBar
+        android:id="@+id/pr_progress"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/pr_cover"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/pr_cover" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

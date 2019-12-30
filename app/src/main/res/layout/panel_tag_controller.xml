@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tn_panel_master"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="false"
+    android:orientation="vertical"
+    android:paddingBottom="8dp">
+
+
+    <ImageView
+        android:id="@+id/tn_info1_ic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:tint="@color/gradientFullview"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_info_24" />
+
+    <TextView
+        android:id="@+id/tn_info1_tx"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="8dp"
+        android:text="Here you can see topics that will show up on your feed!"
+        android:textColor="@color/gradientFullview"
+        app:layout_constraintBottom_toBottomOf="@+id/tn_info1_ic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tn_info1_ic"
+        app:layout_constraintTop_toTopOf="@+id/tn_info1_ic" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/tn_recycler_overview"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tn_info1_ic"
+        app:layout_constraintTop_toBottomOf="@+id/tn_info1_tx" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/tn_header_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="tn_info1_tx,tn_recycler_overview,tn_info1_ic" />
+
+    <ImageView
+        android:id="@+id/tn_info2_ic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="6dp"
+        android:tint="@color/gradientFullview"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tn_recycler_overview"
+        app:srcCompat="@drawable/round_add_24" />
+
+    <TextView
+        android:id="@+id/tn_info2_tx"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="8dp"
+        android:clickable="false"
+        android:text="Choose the topics you are interested in"
+        android:textColor="@color/gradientFullview"
+        app:layout_constraintBottom_toBottomOf="@+id/tn_info2_ic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tn_info2_ic"
+        app:layout_constraintTop_toTopOf="@+id/tn_info2_ic" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
