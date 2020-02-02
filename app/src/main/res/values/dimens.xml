@@ -11,12 +11,19 @@
     <dimen name="elevation_backdrop_content_top">6dp</dimen>
 
 
-    <dimen name="textsize_header">40dp</dimen>
-    <dimen name="textsize_subheader">20dp</dimen>
+    <dimen name="textsize_logo_start">55dp</dimen>
+    <dimen name="textsize_header">30dp</dimen>
+    <dimen name="textsize_subheader">16dp</dimen>
+
+    <dimen name="header_padding">5dp</dimen>
+    <dimen name="header_marginbottom">5dp</dimen>
+
+
 
     <dimen name="info_height">56dp</dimen>
 
     <dimen name="radius_input">5dp</dimen>
+    <dimen name="radius_action">5dp</dimen>
 
 
     <dimen name="radius_answer">5dp</dimen>
@@ -29,5 +36,8 @@
 
     <dimen name="padding_button_lr">14dp</dimen>
     <dimen name="padding_button_tb">6dp</dimen>
+
+
+
 
 </resources>

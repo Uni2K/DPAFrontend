@@ -7,6 +7,8 @@ import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Switch
+import android.widget.Toast
 import androidx.constraintlayout.widget.Group
 import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,11 +21,16 @@ import com.project.app.Adapters.WelcomeAdapter
 import com.project.app.R
 
 
-class WelcomeDialogFragment : DialogFragment() {
+class UserIntroDialogFragment : DialogFragment() {
 
 
     lateinit var parent: HomeActivity
-    lateinit var next: FloatingActionButton
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setStyle(STYLE_NORMAL, R.style.FullScreenDialogStyleLogin)
+    }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -33,19 +40,24 @@ class WelcomeDialogFragment : DialogFragment() {
 
         }
     }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setStyle(STYLE_NORMAL, R.style.FullScreenDialogStyleSearch)
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val v = inflater.inflate(R.layout.fragment_welcome, container, false)
-        val recyclerView =  v.findViewById<RecyclerView>(R.id.welcome_recycler)
-        recyclerView.layoutManager=LinearLayoutManager(context,RecyclerView.VERTICAL,false)
-        recyclerView.adapter=WelcomeAdapter(this)
-        val snapHelper = LinearSnapHelper()
-      //  snapHelper.attachToRecyclerView(recyclerView)
+        val v = inflater.inflate(R.layout.fragment_intro_user, container, false)
+        v.findViewById<View>(R.id.back).setOnClickListener { dismiss() }
+
+        v.findViewById<View>(R.id.start).setOnClickListener {
+            if(v.findViewById<Switch>(R.id.switch1).isChecked){
+                val sp=parent.getSharedPreferences("Settings",0)
+                sp.edit().putBoolean("user_TOS",true).apply()
+
+                val frag = LoggedInUserDialogFragment()
+                frag.show(parent.supportFragmentManager, "account")
+                dismiss()
+
+            }else{
+                Toast.makeText(context,"Enable the terms of usage, please!",Toast.LENGTH_LONG).show()
+            }
+        }
+
         return v
     }
 

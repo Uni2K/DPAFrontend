@@ -21,47 +21,99 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="1:1.5"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
-        <ImageView
+        <TextView
             android:id="@+id/welcome_logo"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintDimensionRatio="1:1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/avenirbold"
+            android:text="@string/app_name"
+            android:textColor="@color/themeColorIntro"
+            android:textSize="@dimen/textsize_logo_start"
+            app:layout_constraintBottom_toTopOf="@+id/guideline5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/logo" />
+            app:layout_constraintTop_toTopOf="@+id/guideline5" />
 
         <TextView
             android:id="@+id/welcome_text"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:fontFamily="@font/seguisb"
-            android:text="Welcome to the answer of all your Questions. Please tell us what you are interested in. Don't worry you can change it every time you like!"
-            android:textSize="18sp"
+            android:layout_marginBottom="@dimen/header_marginbottom"
+            android:background="@color/themeColorIntro"
+            android:fontFamily="@font/avenirbold"
+            android:includeFontPadding="false"
+            android:paddingLeft="@dimen/header_padding"
+            android:paddingTop="@dimen/header_padding"
+            android:paddingRight="@dimen/header_padding"
+            android:text="Welcome"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textsize_header"
             android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/welcome_text_sub"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/welcome_logo"
+            app:layout_constraintVertical_bias="0.7"
+            app:layout_constraintVertical_chainStyle="packed"
             app:layout_constraintWidth_percent="0.7" />
+
+        <TextView
+            android:id="@+id/welcome_text_sub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/avenirmedium"
+            android:text="to the answer of all your Questions. "
+            android:textColor="@color/themeColorIntro"
+            android:textSize="@dimen/textsize_subheader"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/welcome_text"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/welcome_text"
+            app:layout_constraintTop_toBottomOf="@+id/welcome_text"
+            app:layout_constraintVertical_chainStyle="packed" />
 
         <ImageView
             android:id="@+id/welcome_start"
             android:layout_width="0dp"
             android:layout_height="56dp"
+            android:alpha="0.4"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:scaleType="centerInside"
             app:layout_constraintBottom_toBottomOf="@+id/dimensionReserver"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/welcome_text"
             app:srcCompat="@drawable/baseline_keyboard_arrow_down_24" />
+
+        <ImageView
+            android:id="@+id/welcome_start2"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_marginBottom="4dp"
+            android:alpha="0.6"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:scaleType="centerInside"
+            app:layout_constraintBottom_toBottomOf="@+id/dimensionReserver"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/baseline_keyboard_arrow_down_24" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="20dp"
+            app:layout_constraintGuide_percent="0.2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

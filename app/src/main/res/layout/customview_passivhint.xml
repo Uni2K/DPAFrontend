@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/hintBackgroundColor"
+    android:orientation="horizontal"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/ab_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:tint="@android:color/black"
+        app:srcCompat="@drawable/outline_info_24" />
+
+    <TextView
+        android:id="@+id/ab_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="16dp"
+        android:layout_weight="1"
+        android:text="Enjoy the Benefits of your own user  account! Create polls and collect Reputation while getting the hottest Content on your personal feed!"
+        android:textColor="@android:color/black" />
+</LinearLayout>

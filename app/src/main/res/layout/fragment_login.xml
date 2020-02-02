@@ -6,16 +6,25 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <ImageView
+    <TextView
         android:id="@+id/imageView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/themeColorUser"
+        android:fontFamily="@font/avenirbold"
+        android:includeFontPadding="false"
+        android:paddingLeft="@dimen/header_padding"
+        android:paddingTop="@dimen/header_padding"
+        android:paddingRight="@dimen/header_padding"
+        android:paddingBottom="@dimen/header_padding"
+        android:text="@string/app_name"
+        android:textColor="@color/white"
+        android:textSize="50sp"
         app:layout_constraintBottom_toTopOf="@+id/tabLayout"
         app:layout_constraintDimensionRatio="2:0.3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"

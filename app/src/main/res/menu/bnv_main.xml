@@ -3,23 +3,23 @@
 
     <item
         android:id="@+id/main_feed"
-        android:icon="@drawable/round_list_24"
-        android:visible="false"
-        android:title="Feed" />
+        android:icon="@drawable/baseline_rss_feed_24"
+        android:title="Feed"
+        android:visible="false" />
     <item
-        android:id="@+id/main_hot"
-        android:icon="@drawable/baseline_whatshot_24"
-        android:title="Hot" />
+        android:id="@+id/main_discover"
+        android:icon="@drawable/baseline_explore_24"
+        android:title="Discover" />
 
     <item
-        android:id="@+id/main_new"
-        android:icon="@drawable/round_fiber_new_24"
-        android:title="New" />
+        android:id="@+id/main_updates"
+        android:icon="@drawable/baseline_notifications_none_24"
+        android:title="Updates" />
 
     <item
-        android:id="@+id/main_topics"
-        android:icon="@drawable/baseline_category_24"
-        android:title="Topics" />
+        android:id="@+id/main_search"
+        android:icon="@drawable/baseline_search_24"
+        android:title="Search" />
     <item
         android:checkable="false"
         android:title="@null"

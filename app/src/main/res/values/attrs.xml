@@ -57,8 +57,11 @@
             <attr name="ctext" format="string"/>
             <attr name="cicon" format="reference"/>
         </declare-styleable>
+
     <declare-styleable name="customActionButton">
         <attr name="abtext" format="string"/>
         <attr name="abicon" format="reference"/>
+        <attr name="abelementTint" format="reference"/>
+        <attr name="abbackgroundTint" format="reference"/>
     </declare-styleable>
 </resources>

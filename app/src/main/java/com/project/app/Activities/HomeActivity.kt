@@ -26,6 +26,7 @@ import com.project.app.Bases.SocketBase
 import com.project.app.Bases.TextBase
 import com.project.app.Dialogs.GeneralUserDialogFragment
 import com.project.app.Dialogs.LoggedInUserDialogFragment
+import com.project.app.Dialogs.UserIntroDialogFragment
 import com.project.app.Dialogs.WelcomeDialogFragment
 import com.project.app.Fragments.*
 import com.project.app.Helpers.Constants
@@ -58,6 +59,9 @@ class HomeActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
 
+
+
+
         setContentView(R.layout.activity_home)
         loadToolbar()
         initFeed()
@@ -75,9 +79,9 @@ class HomeActivity : AppCompatActivity() {
 
         }
 
-        findViewById<ImageView>(R.id.search_sheet).setOnClickListener {
+      /*  findViewById<ImageView>(R.id.search_sheet).setOnClickListener {
             SearchFragment().show(supportFragmentManager, "search")
-        }
+        }*/
 
         val frag = MainContentFragment()
         supportFragmentManager.beginTransaction()
@@ -117,7 +121,7 @@ class HomeActivity : AppCompatActivity() {
                             bottomNavigationView.menu.findItem(R.id.main_feed).isVisible = true
                         }else{
 
-                            bottomNavigationView.selectedItemId=R.id.main_hot
+                            bottomNavigationView.selectedItemId=R.id.main_discover
 
 
 
@@ -246,13 +250,21 @@ class HomeActivity : AppCompatActivity() {
 
 
     fun openAccount(userID: String?) {
-        when (userID) {
+
+
+
+       when (userID) {
             null -> {
                 Toast.makeText(this, "User not found!", Toast.LENGTH_LONG).show()
             }
             "-1" -> {
-                val frag = LoggedInUserDialogFragment()
-                frag.show(supportFragmentManager, "account")
+                val sp=getSharedPreferences("Settings",0)
+                if(!sp.getBoolean("user_TOS",false)){
+                    UserIntroDialogFragment().show(supportFragmentManager,"user intro")
+                }else {
+                    val frag = LoggedInUserDialogFragment()
+                    frag.show(supportFragmentManager, "account")
+                }
             }
             else -> {
                 val arg = Bundle()
@@ -369,18 +381,18 @@ class HomeActivity : AppCompatActivity() {
                     setContent(Constants.CONTENT_FEED)
 
                 }
-                R.id.main_hot -> {
+              /*  R.id.main_hot -> {
                     setContent(Constants.CONTENT_TRENDING)
 
 
-                }
-                R.id.main_new -> {
+                }*/
+                /*  R.id.main_new -> {
                     setContent(Constants.CONTENT_NEW)
 
                 }
                 R.id.main_topics -> {
                     setContent(Constants.CONTENT_TOPICS)
-                }
+                }*/
             }
             true
         }

@@ -45,51 +45,31 @@
 
     </FrameLayout>
 
-    <View
+
+    <com.project.app.CustomViews.ActionButton
         android:id="@+id/welcome_finish"
         android:layout_width="0dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/shape_20000"
-        android:backgroundTint="@color/answerActivated"
-        android:clickable="true"
-        android:elevation="5dp"
-        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="4dp"
+        android:drawablePadding="12dp"
+        android:gravity="center|center_vertical"
+        android:paddingLeft="24dp"
+        android:paddingTop="6dp"
+        android:paddingRight="24dp"
+        android:paddingBottom="6dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:abbackgroundTint="@color/themeColorIntro"
+        app:abelementTint="@color/white"
+        app:abicon="@drawable/baseline_navigate_next_24"
+        app:abtext="Jump in!"
+        app:cardElevation="7dp"
+        app:cardMaxElevation="7dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="false"
-        android:elevation="4000dp"
-        android:fontFamily="@font/seguisb"
-        android:includeFontPadding="false"
-        android:outlineProvider="none"
-        android:text="Let's start!"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/welcome_finish"
-        app:layout_constraintEnd_toEndOf="@+id/welcome_finish"
-        app:layout_constraintStart_toStartOf="@+id/welcome_finish"
-        app:layout_constraintTop_toTopOf="@+id/welcome_finish" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:clickable="false"
-        android:elevation="4000dp"
-        android:outlineProvider="none"
-        android:tint="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/welcome_finish"
-        app:layout_constraintEnd_toEndOf="@+id/welcome_finish"
-        app:layout_constraintTop_toTopOf="@+id/welcome_finish"
-        app:srcCompat="@drawable/baseline_send_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -19,6 +19,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
 import com.project.app.Activities.HomeActivity
 import com.project.app.Bases.TextBase
+import com.project.app.CustomViews.ActionButton
 import com.project.app.Helpers.Constants
 import com.project.app.Helpers.MasterViewModel
 import com.project.app.Helpers.RetrofitHelper
@@ -123,7 +124,7 @@ class LoginDialogFragment : DialogFragment() {
     }
 
     private fun setUpSignIn(view: View) {
-        val signupGO = view.findViewById<TextView>(R.id.signup_go)
+        val signupGO = view.findViewById<ActionButton>(R.id.signup_go)
         val clearEmail = view.findViewById<ImageView>(R.id.signup_email_clear)
         val clearPW = view.findViewById<ImageView>(R.id.signup_pw_clear)
         val password = view.findViewById<EditText>(R.id.signup_pw)
@@ -230,7 +231,7 @@ class LoginDialogFragment : DialogFragment() {
 
     private fun setUpLogin(view: View) {
 
-        val loginGO = view.findViewById<View>(R.id.login_go)
+        val loginGO = view.findViewById<ActionButton>(R.id.login_go)
         val forgotPWEdit = view.findViewById<TextView>(R.id.login_forgotpw)
         val changeUserEdit = view.findViewById<TextView>(R.id.login_changeuser)
         val clearEmail = view.findViewById<ImageView>(R.id.login_email_clear)

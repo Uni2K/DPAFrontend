@@ -22,6 +22,19 @@
     <color name="thirdLightColor">#FF9900</color>
 
 
+    <color name="themeColorIntro">#21CAD9</color>
+    <color name="themeColorMain">#FF5407</color>
+    <color name="themeColorUser">#E32488</color>
+
+
+
+
+
+
+
+
+
+
     <color name="chipBackgroundIdle">#C7C6C6</color>
 
     <color name="activated">@color/favoriteColor</color>
@@ -58,6 +71,7 @@
     <color name="gradientFullview">#465B65</color>
     <color name="skeletonColor">#B9B8B8</color>
     <color name="editEnabled">#FFCCBC</color>
+
 
 
 </resources>

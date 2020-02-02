@@ -17,7 +17,7 @@ import com.project.app.R
 class WelcomeAdapter(val parent: DialogFragment) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private var topicPickFragment: TopicPickFragment= TopicPickFragment()
-    private val numberOfElements = 6
+    private val numberOfElements = 4
     lateinit var recyclerView: RecyclerView
 
     override fun onAttachedToRecyclerView(recyclerView_: RecyclerView) {
@@ -113,8 +113,6 @@ class WelcomeAdapter(val parent: DialogFragment) :
     }
 
     class DefaultViewHolder(v: View) : RecyclerView.ViewHolder(v) {
-        val text: TextView = v.findViewById(R.id.welcome_text)
-        val subtext: TextView = v.findViewById(R.id.welcome_subtext)
         val icon: ImageView = v.findViewById(R.id.welcome_logo)
     }
 
@@ -144,7 +142,6 @@ class WelcomeAdapter(val parent: DialogFragment) :
     class StartViewHolder(v: View) : RecyclerView.ViewHolder(v) {
         val text: TextView = v.findViewById(R.id.welcome_text)
         val button: ImageView = v.findViewById(R.id.welcome_start)
-        val icon: ImageView = v.findViewById(R.id.welcome_logo)
     }
 
 }

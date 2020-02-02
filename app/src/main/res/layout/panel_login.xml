@@ -206,26 +206,29 @@
         app:layout_constraintStart_toEndOf="@id/login_edit_icon_2"
         app:layout_constraintTop_toTopOf="@+id/login_email_back" />
 
-    <TextView
+    <com.project.app.CustomViews.ActionButton
         android:id="@+id/login_go"
         android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="4dp"
-        android:background="@drawable/shape_5"
-        android:backgroundTint="@color/secondaryColor"
-        android:elevation="4dp"
-        android:foreground="?attr/selectableItemBackground"
-        android:gravity="center"
-        android:text="Login"
-        android:textColor="@color/white"
+        android:drawablePadding="12dp"
+        android:gravity="center|center_vertical"
+        android:paddingLeft="24dp"
+        android:paddingTop="6dp"
+        android:paddingRight="24dp"
+        android:paddingBottom="6dp"
+        android:textSize="20dp"
         android:textStyle="bold"
+        app:abbackgroundTint="@color/themeColorUser"
+        app:abelementTint="@color/white"
+        app:abicon="@drawable/baseline_navigate_next_24"
+        app:abtext="Login"
+        app:cardElevation="7dp"
+        app:cardMaxElevation="7dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
