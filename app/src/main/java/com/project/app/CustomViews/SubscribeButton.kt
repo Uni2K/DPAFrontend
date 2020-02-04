@@ -10,7 +10,7 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import com.project.app.R
 
-class ToggleButton @JvmOverloads constructor(
+class SubscribeButton @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
@@ -46,8 +46,8 @@ class ToggleButton @JvmOverloads constructor(
             0, 0).apply {
 
             try {
-                icon.setImageResource(getResourceId(R.styleable.customToggleButton_cicon,0))
-                text.text=getString(R.styleable.customToggleButton_ctext)
+              //  icon.setImageResource(getResourceId(R.styleable.customToggleButton_cicon,0))
+               // text.text=getString(R.styleable.customToggleButton_ctext)
 
             } finally {
                 recycle()

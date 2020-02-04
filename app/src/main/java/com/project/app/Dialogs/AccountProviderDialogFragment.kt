@@ -3,13 +3,15 @@ package com.project.app.Dialogs
 import android.os.Bundle
 import android.view.*
 import android.widget.ImageView
+import android.widget.TableLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.tabs.TabLayout
 import com.project.app.Bases.TextBase
-import com.project.app.CustomViews.ToggleButton
+import com.project.app.CustomViews.SubscribeButton
 import com.project.app.Helpers.Constants
 import com.project.app.Objects.User
 import com.project.app.Helpers.ContentLoader
@@ -31,9 +33,9 @@ open class AccountProviderDialogFragment : QuestionControllerDialogFragment() {
     lateinit var userTimeStamp: TextView
     lateinit var userFollower: TextView
     lateinit var userAvatar: ImageView
-    lateinit var subscribe: ToggleButton
+    lateinit var subscribe: SubscribeButton
     lateinit var menu: Menu
-    lateinit var bnv: BottomNavigationView
+    lateinit var tabLayout: TabLayout
     var userID: String? = null
 
 
@@ -54,7 +56,9 @@ open class AccountProviderDialogFragment : QuestionControllerDialogFragment() {
         var view = inflater.inflate(R.layout.fragment_account, null)
         view.findViewById<View>(R.id.account_back).setOnClickListener { dismiss() }
         parentView = view
-        bnv = view.findViewById<BottomNavigationView>(R.id.account_bnv)
+        tabLayout = view.findViewById<TabLayout>(R.id.account_bnv)
+
+        
         recycler = view.findViewById(R.id.cd_content)
         swipeLayout = view.findViewById(R.id.cd_swipelayout)
         toolbar = view.findViewById(R.id.toolbar)
@@ -73,14 +77,30 @@ open class AccountProviderDialogFragment : QuestionControllerDialogFragment() {
         activity.supportActionBar?.setDisplayHomeAsUpEnabled(true)
         activity.supportActionBar?.setDisplayShowHomeEnabled(true)
 
+        tabLayout.addTab(tabLayout.newTab().setText("News").setIcon(R.drawable.baseline_rss_feed_24))
+        tabLayout.addTab(tabLayout.newTab().setText("Voted").setIcon(R.drawable.baseline_how_to_vote_24))
+        tabLayout.addTab(tabLayout.newTab().setText("Subscribed").setIcon(R.drawable.baseline_favorite_24))
 
+        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+            }
+
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                
+            }
+        })
+        
+        
         start()
         return view
     }
 
 
     private fun start() {
-        bnv.setOnNavigationItemSelectedListener {
+      /*  tabLayout.setOnNavigationItemSelectedListener {
 
             when (it.itemId) {
                 R.id.following -> {
@@ -111,7 +131,7 @@ open class AccountProviderDialogFragment : QuestionControllerDialogFragment() {
             }
             true
         }
-
+*/
 
     }
 

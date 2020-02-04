@@ -25,6 +25,7 @@
     <color name="themeColorIntro">#21CAD9</color>
     <color name="themeColorMain">#FF5407</color>
     <color name="themeColorUser">#E32488</color>
+    <color name="themeColorUserLoggedIn">#92206A</color>
 
 
 

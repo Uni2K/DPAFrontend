@@ -13,7 +13,7 @@ class QuestionStackInfo(arrayList:List<Displayable>) {
 
     }
         init {
-            for(q in arrayList){
+      /*      for(q in arrayList){
                 if(tagColors.size<=tagLimit){
                     if(q as? Question !=null)
                     tagColors.add(Color.parseColor(q.tags?.color))
@@ -24,7 +24,7 @@ class QuestionStackInfo(arrayList:List<Displayable>) {
                 }else{
                     break
                 }
-            }
+            }*/
 
 
 

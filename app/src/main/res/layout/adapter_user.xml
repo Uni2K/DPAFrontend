@@ -145,7 +145,7 @@
         android:textColor="@color/timestampColor"
         android:textSize="@dimen/textsize_stat" />
 
-    <com.project.app.CustomViews.ToggleButton
+    <com.project.app.CustomViews.SubscribeButton
         android:id="@+id/adap_tb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -155,7 +155,7 @@
         android:layout_marginTop="4dp"
         android:layout_marginEnd="8dp"
         app:cicon="@drawable/baseline_favorite_24"
-        app:ctext="Subscribe"></com.project.app.CustomViews.ToggleButton>
+        app:ctext="Subscribe"></com.project.app.CustomViews.SubscribeButton>
 
 
 

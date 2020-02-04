@@ -64,4 +64,10 @@
         <attr name="abelementTint" format="reference"/>
         <attr name="abbackgroundTint" format="reference"/>
     </declare-styleable>
+
+    <declare-styleable name="customDefaultButton">
+        <attr name="dbtext" format="string"/>
+        <attr name="dbelementTint" format="reference"/>
+        <attr name="dbbackgroundTint" format="reference"/>
+    </declare-styleable>
 </resources>

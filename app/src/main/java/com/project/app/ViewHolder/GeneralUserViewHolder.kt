@@ -5,7 +5,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.project.app.Bases.TextBase
-import com.project.app.CustomViews.ToggleButton
+import com.project.app.CustomViews.SubscribeButton
 import com.project.app.Objects.User
 import com.project.app.R
 import kotlin.system.measureTimeMillis
@@ -20,7 +20,7 @@ class GeneralUserViewHolder(
     var timestamp: TextView = v.findViewById(R.id.adap_stat_2t)
     var reputation: TextView = v.findViewById(R.id.adap_stat_3t)
     var desc: TextView = v.findViewById(R.id.adap_context)
-    var subscribe: ToggleButton = v.findViewById(R.id.adap_tb)
+    var subscribe: SubscribeButton = v.findViewById(R.id.adap_tb)
     var avatar: ImageView = v.findViewById(R.id.adap_avatar)
     var info:TextView=v.findViewById(R.id.adap_timestamp)
 

@@ -30,7 +30,7 @@
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
-                    android:background="@color/white"
+                    android:background="@color/themeColorUser"
                     android:contentInsetStart="0dp"
                     android:contentInsetLeft="0dp"
                     android:contentInsetEnd="0dp"
@@ -41,17 +41,42 @@
                     app:contentInsetLeft="0dp"
                     app:contentInsetRight="0dp"
                     app:contentInsetStart="0dp"
+                    app:contentInsetStartWithNavigation="10dp"
                     app:layout_collapseMode="pin"
-                    app:title="User"
-                    app:titleTextColor="@color/primaryOppositeColor">
+                    app:titleTextColor="@color/white">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
+                    <TextView
+                        android:id="@+id/toolbarTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="User"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/textsize_toolbar" />
+
+                    <com.project.app.CustomViews.SubscribeButton
+                        android:id="@+id/toolbarSubscripe"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="8dp">
+
+
+                    </com.project.app.CustomViews.SubscribeButton>
+                </RelativeLayout>
                 </androidx.appcompat.widget.Toolbar>
-
                 <include
                     layout="@layout/panel_header_account"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/toolbar_height" />
+
+
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>
         </com.google.android.material.appbar.AppBarLayout>

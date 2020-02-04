@@ -17,7 +17,7 @@
         android:id="@+id/toolbar"
         android:layout_width="0dp"
         android:layout_height="@dimen/toolbar_height"
-        android:background="@color/secondaryDarkColor"
+        android:background="@color/themeColorUserLoggedIn"
         android:clickable="false"
         android:elevation="4dp"
         android:visibility="visible"
@@ -25,12 +25,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <include
-        android:id="@+id/include"
-        layout="@layout/panel_header_account"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -40,6 +34,7 @@
         android:outlineProvider="none"
         android:text="Edit Account"
         android:textColor="@color/white"
+        android:textSize="@dimen/textsize_toolbar"
         app:layout_constraintBottom_toBottomOf="@+id/account_back"
         app:layout_constraintStart_toEndOf="@+id/account_back"
         app:layout_constraintTop_toTopOf="@+id/account_back" />
@@ -68,77 +63,45 @@
         app:layout_constraintBottom_toTopOf="@+id/account_changepw"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
-    <TextView
-        android:id="@+id/account_delete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/button_light"
-        android:elevation="3dp"
-        android:foreground="?attr/selectableItemBackground"
-        android:paddingLeft="@dimen/padding_button_lr"
-        android:paddingTop="@dimen/padding_button_tb"
-        android:paddingRight="@dimen/padding_button_lr"
-        android:paddingBottom="@dimen/padding_button_tb"
-        android:text="Delete Account"
-        android:textColor="@color/secondaryDarkColor"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:id="@+id/account_logoutall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/button_dark"
-        android:foreground="?attr/selectableItemBackground"
-        android:paddingLeft="@dimen/padding_button_lr"
-        android:paddingTop="@dimen/padding_button_tb"
-        android:paddingRight="@dimen/padding_button_lr"
-        android:paddingBottom="@dimen/padding_button_tb"
-        android:text="Logout everywhere"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/account_logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/button_dark"
-        android:foreground="?attr/selectableItemBackground"
-        android:paddingLeft="@dimen/padding_button_lr"
-        android:paddingTop="@dimen/padding_button_tb"
-        android:paddingRight="@dimen/padding_button_lr"
-        android:paddingBottom="@dimen/padding_button_tb"
-        android:text="Logout on this device"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/account_logoutall"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
+    <com.project.app.CustomViews.DefaultButton
         android:id="@+id/account_changepw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/button_dark"
-        android:foreground="?attr/selectableItemBackground"
-        android:paddingLeft="@dimen/padding_button_lr"
-        android:paddingTop="@dimen/padding_button_tb"
-        android:paddingRight="@dimen/padding_button_lr"
-        android:paddingBottom="@dimen/padding_button_tb"
-        android:text="Change password"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/account_logout"
+
+        app:abbackgroundTint="@color/themeColorUser"
+        app:abelementTint="@color/white"
+        app:abtext="Change Password"
+        app:layout_constraintBottom_toTopOf="@+id/account_delete"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <com.project.app.CustomViews.DefaultButton
+        android:id="@+id/account_logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center|center_vertical"
+        app:abbackgroundTint="@color/themeColorUser"
+        app:abelementTint="@color/white"
+        app:abtext="Change Password"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.project.app.CustomViews.DefaultButton
+        android:id="@+id/account_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        app:abbackgroundTint="@color/themeColorUser"
+        app:abelementTint="@color/white"
+        app:abtext="Change Password"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
     <ImageView
         android:id="@+id/account_back"
         android:layout_width="0dp"

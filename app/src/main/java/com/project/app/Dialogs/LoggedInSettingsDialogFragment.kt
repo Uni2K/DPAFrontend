@@ -18,7 +18,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.project.app.Activities.HomeActivity
 import com.project.app.Adapters.AccountChangeAdapter
 import com.project.app.Bases.TextBase
-import com.project.app.CustomViews.ToggleButton
+import com.project.app.CustomViews.SubscribeButton
 import com.project.app.Helpers.Constants
 import com.project.app.Helpers.MasterViewModel
 import com.project.app.Helpers.RetrofitHelper
@@ -56,7 +56,7 @@ class LoggedInSettingsDialogFragment : DialogFragment() {
     lateinit var userTimeStamp: TextView
     lateinit var userFollower: TextView
     lateinit var userAvatar: ImageView
-    lateinit var subGroup: ToggleButton
+    lateinit var subGroup: SubscribeButton
     lateinit var bnv: View
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -102,7 +102,7 @@ class LoggedInSettingsDialogFragment : DialogFragment() {
         }
         view.findViewById<ImageView>(R.id.account_save).setOnClickListener { saveSettings(view) }
         view.findViewById<TextView>(R.id.account_logout).setOnClickListener { logout() }
-        view.findViewById<TextView>(R.id.account_logoutall).setOnClickListener { logoutAll() }
+       // view.findViewById<TextView>(R.id.account_logoutall).setOnClickListener { logoutAll() }
 
         return view
     }
@@ -201,7 +201,6 @@ class LoggedInSettingsDialogFragment : DialogFragment() {
         subGroup.visibility = View.GONE
         bnv.visibility = View.GONE
         view.findViewById<View>(R.id.imageView3).visibility = View.GONE
-        view.findViewById<View>(R.id.divider).visibility = View.GONE
 
 
 

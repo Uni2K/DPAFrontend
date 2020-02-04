@@ -12,16 +12,20 @@
     <style name="FullScreenDialogStyle" parent="Theme.MaterialComponents.Light.Dialog">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowFullscreen">false</item>
-        <item name="android:windowLightStatusBar">false</item>
-        <item name="android:statusBarColor">@color/gradientFullview</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">@color/white</item>
         <item name="android:navigationBarColor">@color/white</item>
         <item name="android:windowIsFloating">false</item>
         <item name="colorControlHighlight">@color/rippleColor</item>
         <item name="android:windowAnimationStyle">@style/SlideAnimation.Window</item>
-
+        <item name="toolbarNavigationButtonStyle">@style/Toolbar.Button.Navigation.Tinted</item>
         <!-- This is important! Don't forget to set window background -->
         <item name="android:windowBackground">@color/white</item>
+        <item name="colorControlNormal">@color/white</item>
 
+    </style>
+    <style name="Toolbar.Button.Navigation.Tinted" parent="Widget.AppCompat.Toolbar.Button.Navigation">
+        <item name="tint">@color/white</item>
     </style>
     <style name="CreateShapeOverlay" parent="">
         <item name="cornerFamily">rounded</item>
