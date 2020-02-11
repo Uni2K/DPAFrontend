@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:background="@color/primaryColor"
-        tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/primaryColor"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
 
     <View
@@ -36,6 +36,7 @@
         android:layout_marginTop="0dp"
         android:indeterminate="true"
         android:indeterminateBehavior="cycle"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/main_account"
         app:layout_constraintEnd_toEndOf="@+id/main_account"
         app:layout_constraintStart_toStartOf="@+id/main_account"
@@ -50,6 +51,7 @@
         android:indeterminate="true"
         android:indeterminateBehavior="cycle"
         android:rotation="90"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/main_account"
         app:layout_constraintEnd_toEndOf="@+id/main_account"
         app:layout_constraintStart_toStartOf="@+id/main_account"
@@ -68,4 +70,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/toolbar" />
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/botStart"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="smile.zip"
+        app:lottie_loop="true"
+        app:lottie_speed="0.5"></com.airbnb.lottie.LottieAnimationView>
 </merge>

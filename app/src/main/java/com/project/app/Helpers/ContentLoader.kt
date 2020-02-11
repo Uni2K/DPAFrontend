@@ -56,7 +56,6 @@ class ContentLoader(
                 )
             )
             contentDisplay.initSwipeToRefresh(parentActivity, lifeCycleOwner)
-            //setContent(initialContentName_, *payLoad)
             isFullyReady.setValue(true)
         }
         scheduleImmediateUpdates()

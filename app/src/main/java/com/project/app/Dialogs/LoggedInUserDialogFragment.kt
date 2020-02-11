@@ -1,5 +1,6 @@
 package com.project.app.Dialogs
 
+import android.content.res.ColorStateList
 import android.os.Bundle
 import android.util.Log
 import android.view.*
@@ -31,6 +32,8 @@ class LoggedInUserDialogFragment : AccountProviderDialogFragment() {
         val re = super.onCreateView(inflater, container, savedInstanceState)
 
         subscribe.visibility = View.GONE
+        toolbar.backgroundTintList= ColorStateList.valueOf(activity.resources.getColor(R.color.themeColorUserLoggedIn,null))
+
         val viewModel = ViewModelProvider(activity).get(MasterViewModel::class.java)
         viewModel.userBase.refreshAccountScreenTrigger.observe(this, Observer {
             //Refresh After Settings

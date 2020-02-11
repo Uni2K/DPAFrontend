@@ -37,20 +37,6 @@
         app:layout_constraintTop_toBottomOf="@+id/background_header" />
 
 
-    <ImageView
-        android:id="@+id/search_sheet"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:elevation="20dp"
-        android:scaleType="centerInside"
-        android:tint="@color/primaryOppositeColor"
-        app:layout_constraintBottom_toBottomOf="@+id/background_header"
-        app:layout_constraintDimensionRatio="W,1:1"
-        app:layout_constraintEnd_toEndOf="@+id/background_header"
-        app:layout_constraintTop_toTopOf="@+id/background_header"
-        app:srcCompat="@drawable/round_settings_24" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

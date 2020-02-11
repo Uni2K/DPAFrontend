@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/adap_as_back"
+    android:layout_width="wrap_content"
+    android:layout_height="44dp"
+    android:background="@drawable/shape_5"
+    android:backgroundTint="@color/themeColorIntro"
+    android:elevation="3dp"
+    android:foreground="?attr/selectableItemBackground"
+    android:orientation="horizontal"
+    android:padding="4dp">
+
+    <ImageView
+        android:id="@+id/adap_as_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="4dp"
+        android:clickable="false"
+        android:tint="@color/white"
+        app:srcCompat="@drawable/baseline_build_24" />
+
+    <TextView
+        android:id="@+id/adap_as_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:clickable="false"
+        android:text="TextView"
+        android:textColor="@color/white" />
+</LinearLayout>

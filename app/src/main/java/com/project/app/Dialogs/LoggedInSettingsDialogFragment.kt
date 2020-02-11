@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.Switch
 import android.widget.TextView
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
@@ -18,6 +19,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.project.app.Activities.HomeActivity
 import com.project.app.Adapters.AccountChangeAdapter
 import com.project.app.Bases.TextBase
+import com.project.app.CustomViews.DefaultButton
 import com.project.app.CustomViews.SubscribeButton
 import com.project.app.Helpers.Constants
 import com.project.app.Helpers.MasterViewModel
@@ -30,9 +32,11 @@ import com.project.app.R
 class LoggedInSettingsDialogFragment : DialogFragment() {
     private var userCredentials: StoredUser? = null
     private var userInformations: User? = null
-
     private lateinit var parent: HomeActivity
-
+    private lateinit var flipWrapper: SwipeRefreshLayout
+    lateinit var recyclerView: RecyclerView
+    private lateinit var userAvatar: ImageView
+    private lateinit var privateProfil: Switch
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -48,16 +52,7 @@ class LoggedInSettingsDialogFragment : DialogFragment() {
 
     }
 
-    lateinit var flipWrapper: SwipeRefreshLayout
-    lateinit var recyclerView: RecyclerView
-    lateinit var userName: TextView
-    lateinit var userDesc: TextView
-    lateinit var userLocation: TextView
-    lateinit var userTimeStamp: TextView
-    lateinit var userFollower: TextView
-    lateinit var userAvatar: ImageView
-    lateinit var subGroup: SubscribeButton
-    lateinit var bnv: View
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -70,39 +65,37 @@ class LoggedInSettingsDialogFragment : DialogFragment() {
         recyclerView.layoutManager = LinearLayoutManager(parent, RecyclerView.VERTICAL, false)
         recyclerView.adapter = AccountChangeAdapter()
 
-
         val viewModel = ViewModelProvider(parent).get(MasterViewModel::class.java)
-       userCredentials = viewModel.localBase.getStoredLogin()
-            //Check user on server
-            userCredentials?.token?.let {
+        userCredentials = viewModel.localBase.getStoredLogin()
+        //Check user on server
+        userCredentials?.token?.let {
 
-                viewModel.userBase.getAccount(
-                    it, object : RetrofitHelper.Companion.DisplayableListCallback {
-                        override fun onResponse(content: List<Displayable>) {
-                            (content[0] as? User?)?.let { it1 -> setUser(it1, view) }
-                        }
-
-
-                        override fun onError(error: Int) {
-                            dismiss()
-
-                        }
+            viewModel.userBase.getAccount(
+                it, object : RetrofitHelper.Companion.DisplayableListCallback {
+                    override fun onResponse(content: List<Displayable>) {
+                        (content[0] as? User?)?.let { it1 -> setUser(it1, view) }
+                    }
 
 
-                    })
-            }
+                    override fun onError(error: Int) {
+                        dismiss()
+
+                    }
+
+
+                })
+        }
 
 
 
 
         flipWrapper = view.findViewById(R.id.flip_wrapper)
-                val back=   view.findViewById<ImageView>(R.id.account_back)
-      back.setOnClickListener {
+        val back = view.findViewById<ImageView>(R.id.account_back)
+        back.setOnClickListener {
             dismiss()
         }
         view.findViewById<ImageView>(R.id.account_save).setOnClickListener { saveSettings(view) }
-        view.findViewById<TextView>(R.id.account_logout).setOnClickListener { logout() }
-       // view.findViewById<TextView>(R.id.account_logoutall).setOnClickListener { logoutAll() }
+        view.findViewById<DefaultButton>(R.id.account_logout).setOnClickListener { logout() }
 
         return view
     }
@@ -111,7 +104,7 @@ class LoggedInSettingsDialogFragment : DialogFragment() {
         showLoader()
         val viewModel = ViewModelProvider(parent).get(MasterViewModel::class.java)
         val token = userCredentials?.token
-        Log.d("logout","USERTOKEN: $token")
+        Log.d("logout", "USERTOKEN: $token")
         if (!viewModel.userBase.validateToken(token)) {
             showError(Constants.ERROR_TOKENWRONG)
         } else {
@@ -124,7 +117,8 @@ class LoggedInSettingsDialogFragment : DialogFragment() {
                         override fun onResponse(s: List<Displayable>) {
                             hideLoader()
                             viewModel.localBase.removeTokenFromStoredLogin()
-                            viewModel.userBase.refreshAccountScreenTrigger.value = User(_id = "null")
+                            viewModel.userBase.refreshAccountScreenTrigger.value =
+                                User(_id = "null")
 
                             dismiss()
                         }
@@ -160,7 +154,8 @@ class LoggedInSettingsDialogFragment : DialogFragment() {
                         override fun onResponse(s: List<Displayable>) {
                             hideLoader()
                             viewModel.localBase.removeTokenFromStoredLogin()
-                            viewModel.userBase.refreshAccountScreenTrigger.value = User(_id = "null")
+                            viewModel.userBase.refreshAccountScreenTrigger.value =
+                                User(_id = "null")
                             dismiss()
                         }
 
@@ -179,36 +174,10 @@ class LoggedInSettingsDialogFragment : DialogFragment() {
 
 
     private fun setUser(im: User, view: View) {
-        userInformations=im
-        userName = view.findViewById(R.id.account_username)
-        userFollower = view.findViewById(R.id.account_followercount)
-        userLocation = view.findViewById(R.id.account_country)
-        userTimeStamp = view.findViewById(R.id.account_time)
+        userInformations = im
         userAvatar = view.findViewById(R.id.account_avatar)
-        subGroup = view.findViewById(R.id.subscribe)
-        bnv = view.findViewById(R.id.account_bnv)
-        userDesc = view.findViewById(R.id.account_bio)
-        userName.background = null
-        userFollower.background = null
-        userTimeStamp.background = null
-        userLocation.background = null
         (recyclerView.adapter as AccountChangeAdapter).setUser(im)
-        userName.text = im.name
-
-
-        userDesc.visibility = View.GONE
-        userLocation.visibility = View.GONE
-        subGroup.visibility = View.GONE
-        bnv.visibility = View.GONE
-        view.findViewById<View>(R.id.imageView3).visibility = View.GONE
-
-
-
-        userTimeStamp.text = TextBase.formatUserTimestamp(im.timestamp)
-        userLocation.text = TextBase.formatUserLocation(im.location)
-        userFollower.text = TextBase.formatUserFollowers(im.subscriptions?.size?:0)
         TextBase.formatUserAvatar(im.avatar, userAvatar)
-
 
 
     }
@@ -236,7 +205,8 @@ class LoggedInSettingsDialogFragment : DialogFragment() {
                             hideLoader()
                             (content[0] as? User?)?.let {
 
-                                    it1 -> setUser(it1, view)
+                                    it1 ->
+                                setUser(it1, view)
                                 viewModel.userBase.refreshAccountScreenTrigger.value = it1
 
                             }

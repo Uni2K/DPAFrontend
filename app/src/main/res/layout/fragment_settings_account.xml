@@ -12,7 +12,45 @@
     android:background="@color/primaryColor"
     tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
+    <View
+        android:id="@+id/view8"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/background_skeleton_round"
+        android:backgroundTint="@color/themeColorUserLoggedIn"
+        android:elevation="5dp"
+        android:outlineProvider="none"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
+
+    <ImageView
+        android:id="@+id/account_avatar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/background_skeleton_round"
+        android:backgroundTint="@color/white"
+        android:elevation="5dp"
+        android:outlineProvider="none"
+        app:layout_constraintBottom_toBottomOf="@+id/view8"
+        app:layout_constraintEnd_toEndOf="@+id/view8"
+        app:layout_constraintStart_toStartOf="@+id/view8"
+        app:layout_constraintTop_toTopOf="@+id/view8" />
+
+    <com.project.app.CustomViews.DefaultButton
+        android:id="@+id/account_changeavatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        app:dbbackgroundTint="@color/themeColorUserLoggedIn"
+        app:dbelementTint="@color/white"
+        app:dbtext="Change Password"
+        app:layout_constraintBottom_toTopOf="@+id/account_delete"
+        app:layout_constraintStart_toStartOf="parent" />
     <View
         android:id="@+id/toolbar"
         android:layout_width="0dp"
@@ -55,15 +93,27 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/baseline_done_24" />
 
+    <Switch
+        android:id="@+id/privateProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:theme="@style/UserLoggedInSwitch"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Private Account   "
+        app:layout_constraintBottom_toTopOf="@+id/account_changeavatar"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cd_content"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/account_changepw"
+        app:layout_constraintBottom_toTopOf="@+id/privateProfile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/account_avatar" />
 
 
     <com.project.app.CustomViews.DefaultButton
@@ -71,11 +121,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        app:abbackgroundTint="@color/themeColorUser"
-        app:abelementTint="@color/white"
-        app:abtext="Change Password"
-        app:layout_constraintBottom_toTopOf="@+id/account_delete"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginStart="35dp"
+        app:dbbackgroundTint="@color/themeColorUserLoggedIn"
+        app:dbelementTint="@color/white"
+        app:dbtext="  Change Avatar"
+        app:layout_constraintBottom_toBottomOf="@+id/account_avatar"
+        app:layout_constraintStart_toStartOf="@+id/account_avatar"
+        app:layout_constraintTop_toTopOf="@+id/account_avatar" />
 
     <com.project.app.CustomViews.DefaultButton
         android:id="@+id/account_logout"
@@ -85,9 +137,9 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:gravity="center|center_vertical"
-        app:abbackgroundTint="@color/themeColorUser"
-        app:abelementTint="@color/white"
-        app:abtext="Change Password"
+        app:dbbackgroundTint="@color/themeColorUserLoggedIn"
+        app:dbelementTint="@color/white"
+        app:dbtext="Logout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -97,9 +149,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginBottom="8dp"
-        app:abbackgroundTint="@color/themeColorUser"
-        app:abelementTint="@color/white"
-        app:abtext="Change Password"
+        app:dbbackgroundTint="@color/themeColorUserLoggedIn"
+        app:dbelementTint="@color/white"
+        app:dbtext="Delete Account"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
     <ImageView

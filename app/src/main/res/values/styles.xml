@@ -149,6 +149,16 @@
         <item name="android:colorForeground">#423F3939</item>
     </style>
 
+    <style name="UserLoggedInSwitch" parent="Theme.AppCompat.Light">
+        <!-- active thumb & track color (30% transparency) -->
+        <item name="colorControlActivated">@color/themeColorUserLoggedIn</item>
+
+        <!-- inactive thumb color -->
+        <item name="colorSwitchThumbNormal">@color/secondaryDarkColor</item>
+
+        <!-- inactive track color (30% transparency) -->
+        <item name="android:colorForeground">#423F3939</item>
+    </style>
 
     <style name="AlertDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
         <item name="colorPrimary">@color/secondaryDarkColor</item>

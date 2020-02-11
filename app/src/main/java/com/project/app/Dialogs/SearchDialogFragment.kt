@@ -1,4 +1,4 @@
-package com.project.app.Fragments
+package com.project.app.Dialogs
 
 import android.app.Activity
 import android.content.Context
@@ -18,11 +18,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import androidx.preference.PreferenceManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.project.app.Activities.HomeActivity
 import com.project.app.Adapters.AutoCompleteSearchAdapter
-import com.project.app.Dialogs.QuestionControllerDialogFragment
 import com.project.app.Helpers.Constants
 import com.project.app.Helpers.MasterViewModel
 import com.project.app.Interfaces.PanelSearchInterface
@@ -34,7 +31,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class SearchFragment : QuestionControllerDialogFragment() {
+class SearchDialogFragment : QuestionControllerDialogFragment() {
 
     lateinit var background: ImageView
     lateinit var contentLoader: ContentLoader
@@ -63,10 +60,7 @@ class SearchFragment : QuestionControllerDialogFragment() {
 
 
     private fun searchQuestions(s: String) {
-       // contentLoader.setContent(Constants.CONTENT_NOTHING)
-        var str = s
         if (s.isEmpty()) {
-            str = "-1"
             return
         }
         addTextToHistory(s)
@@ -142,7 +136,7 @@ class SearchFragment : QuestionControllerDialogFragment() {
             edit.threshold = 2
 
             val viewModel = ViewModelProvider(activity).get(MasterViewModel::class.java)
-
+            edit.setHint("Search for polls...")
             edit.setOnItemClickListener { adapterView, view, i, l ->
                 val item: AutoCompleteItem = edit.adapter.getItem(i) as AutoCompleteItem
                 edit.setText(item.text)

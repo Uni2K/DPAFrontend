@@ -18,16 +18,15 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import cl.jesualex.stooltip.Position
 import cl.jesualex.stooltip.Tooltip
+import com.airbnb.lottie.LottieAnimationView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.project.app.Bases.Assistant
 import com.project.app.Bases.DesignBase
 import com.project.app.Bases.SocketBase
 import com.project.app.Bases.TextBase
-import com.project.app.Dialogs.GeneralUserDialogFragment
-import com.project.app.Dialogs.LoggedInUserDialogFragment
-import com.project.app.Dialogs.UserIntroDialogFragment
-import com.project.app.Dialogs.WelcomeDialogFragment
+import com.project.app.Dialogs.*
 import com.project.app.Fragments.*
 import com.project.app.Helpers.Constants
 import com.project.app.Helpers.Constants.Companion.CONTENT_FEED
@@ -72,6 +71,13 @@ class HomeActivity : AppCompatActivity() {
         setUpBNV()
 
 
+
+        findViewById<LottieAnimationView>(R.id.botStart).setOnClickListener {
+            AssistantDialogFragment().show(supportFragmentManager,"assistant")
+        }
+
+
+
         bottomSheet = findViewById(R.id.cons)
         FAB = findViewById(R.id.fabs)
         FAB.setOnClickListener {
@@ -95,10 +101,9 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun registerActivity() {
-        val viewModel = ViewModelProvider(this).get(MasterViewModel::class.java)
-        viewModel.contentSyncer.registerLifecycleOwner(this)
-        viewModel.contentSyncer.connectSyncIndicator(findViewById(R.id.indicator_sync_update),findViewById(R.id.indicator_sync_content))
-
+        //val viewModel = ViewModelProvider(this).get(MasterViewModel::class.java)
+       // viewModel.contentSyncer.registerLifecycleOwner(this)
+      //  viewModel.contentSyncer.connectSyncIndicator(findViewById(R.id.indicator_sync_update),findViewById(R.id.indicator_sync_content))
     }
 
 
@@ -374,13 +379,20 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun setUpBNV() {
+
+
        bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
         bottomNavigationView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.main_feed -> {
                     setContent(Constants.CONTENT_FEED)
+                    true
+                }
+                R.id.main_search -> {
+                   SearchDialogFragment().show(supportFragmentManager,"search")
 
                 }
+
               /*  R.id.main_hot -> {
                     setContent(Constants.CONTENT_TRENDING)
 
@@ -394,7 +406,7 @@ class HomeActivity : AppCompatActivity() {
                     setContent(Constants.CONTENT_TOPICS)
                 }*/
             }
-            true
+           false
         }
 
         val mainViewFlippter=findViewById<ViewFlipper>(R.id.main_viewflipper)

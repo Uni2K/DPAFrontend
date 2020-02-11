@@ -6,32 +6,19 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/primaryColor"
-    android:elevation="6dp"
     tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
 
     <View
-        android:id="@+id/toolbar"
+        android:id="@+id/view2"
         android:layout_width="0dp"
-        android:layout_height="@dimen/toolbar_height"
-        android:visibility="gone"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        android:elevation="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/space"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/account_back"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:scaleType="centerInside"
-        android:tint="@color/primaryOppositeColor"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/toolbar"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/round_arrow_back_24" />
 
     <ImageView
         android:id="@+id/account_avatar"
@@ -40,8 +27,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/background_skeleton_round"
+        android:elevation="5dp"
+        android:outlineProvider="none"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/account_username"
@@ -50,10 +39,12 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/background_skeleton"
+        android:elevation="5dp"
         android:enabled="false"
         android:fontFamily="@font/seguisb"
         android:includeFontPadding="false"
         android:inputType="text"
+        android:outlineProvider="none"
         android:paddingLeft="2dp"
         android:singleLine="true"
         android:textColor="@color/primaryOppositeColor"
@@ -70,10 +61,12 @@
         android:layout_marginTop="2dp"
         android:background="@drawable/background_skeleton"
 
+        android:elevation="5dp"
         android:enabled="false"
         android:fontFamily="@font/segui"
         android:includeFontPadding="false"
         android:inputType="none"
+        android:outlineProvider="none"
         android:singleLine="true"
         android:textColor="@color/primaryOppositeColor"
         android:textSize="14sp"
@@ -90,12 +83,16 @@
         android:layout_marginEnd="8dp"
         android:background="@drawable/background_skeleton"
 
+        android:elevation="5dp"
         android:enabled="false"
         android:fontFamily="@font/segui"
         android:inputType="none"
+        android:outlineProvider="none"
         android:paddingLeft="4dp"
-        android:textColor="@color/secondaryDarkColor"
+        android:text="This is just an example Bio."
+        android:textColor="@android:color/black"
         android:textSize="14sp"
+        android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/account_avatar"
         app:layout_constraintTop_toBottomOf="@+id/account_avatar" />
@@ -104,7 +101,10 @@
         android:id="@+id/imageView3"
         android:layout_width="18dp"
         android:layout_height="18dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
+        android:elevation="5dp"
+        android:outlineProvider="none"
         android:tint="@android:color/black"
         app:layout_constraintStart_toStartOf="@+id/account_bio"
         app:layout_constraintTop_toBottomOf="@+id/account_bio"
@@ -116,16 +116,17 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
 
-        android:layout_marginEnd="8dp"
         android:background="@drawable/background_skeleton"
+        android:elevation="5dp"
         android:enabled="false"
         android:inputType="none"
+        android:outlineProvider="none"
         android:paddingLeft="4dp"
         android:singleLine="true"
-        android:textColor="@color/secondaryDarkColor"
+        android:text="Unknown City"
+        android:textColor="@android:color/black"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-        app:layout_constraintEnd_toStartOf="@+id/subscribe"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toTopOf="@+id/imageView3" />
 
@@ -134,6 +135,8 @@
         android:layout_width="18dp"
         android:layout_height="18dp"
         android:layout_marginTop="16dp"
+        android:elevation="5dp"
+        android:outlineProvider="none"
         android:tint="@android:color/black"
         app:layout_constraintStart_toStartOf="@+id/imageView3"
         app:layout_constraintTop_toBottomOf="@+id/imageView3"
@@ -145,47 +148,58 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
 
-        android:layout_marginEnd="8dp"
         android:background="@drawable/background_skeleton"
+        android:elevation="5dp"
         android:enabled="false"
         android:inputType="none"
+        android:outlineProvider="none"
         android:paddingLeft="4dp"
         android:singleLine="true"
-        android:textColor="@color/secondaryDarkColor"
+        android:text="Unknown creation date"
+        android:textColor="@android:color/black"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView4"
-        app:layout_constraintEnd_toStartOf="@+id/subscribe"
         app:layout_constraintStart_toEndOf="@+id/imageView4"
         app:layout_constraintTop_toTopOf="@+id/imageView4" />
 
-    <com.project.app.CustomViews.SubscribeButton
-        android:id="@+id/subscribe"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_marginEnd="8dp"
-        android:visibility="gone"
-        app:cicon="@drawable/baseline_polymer_24"
-        app:ctext="Subscribe"
-        app:layout_constraintBottom_toTopOf="@+id/account_bnv"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/account_bio"></com.project.app.CustomViews.SubscribeButton>
 
+    <Space
+        android:id="@+id/space"
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/account_bnv"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:elevation="6dp"
+        android:clipToPadding="false"
+        android:elevation="4dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4"
-        app:tabIconTint="@color/themeColorUser"
+        app:layout_constraintTop_toBottomOf="@+id/space"
+        app:tabGravity="center"
+        app:tabIconTint="@color/primaryOppositeColor"
         app:tabIndicator="@drawable/indicator_tablayout"
-        app:tabIndicatorColor="@color/themeColorUser"
+        app:tabIndicatorColor="@color/bnv_user"
+        app:tabInlineLabel="true"
+        app:tabMode="auto"
         app:tabSelectedTextColor="@color/themeColorUser"
-        app:tabTextAppearance="@style/TabLayoutTextStyle"
         app:tabTextColor="@color/primaryOppositeColor" />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/divider"
+        android:elevation="10dp"
+        android:outlineProvider="none"
+        app:layout_constraintBottom_toBottomOf="@+id/view2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -27,13 +27,10 @@ class ContentDisplay @JvmOverloads constructor(
     private lateinit var swipeLayout: SwipeRefreshLayout
     lateinit var recyclerView: RecyclerView
     lateinit var contentLoader: ContentLoader
-    var noContentContainer: ConstraintLayout
-    var errorContainer: ConstraintLayout
+
 
     init {
         val v = View.inflate(context, R.layout.contentdisplay, this)
-        noContentContainer=v.findViewById(R.id.noContentContainer)
-        errorContainer=v.findViewById(R.id.errorContainer)
         swipeLayout = v.findViewById(R.id.cd_swipelayout)
         recyclerView = v.findViewById(R.id.cd_content)
         swipeLayout.setColorSchemeColors(
@@ -52,7 +49,11 @@ class ContentDisplay @JvmOverloads constructor(
 
     @MainThread
     fun initSwipeToRefresh(parentActivity: HomeActivity, lifeCycleOwner: LifecycleOwner) {
+
+
         swipeLayout.setOnRefreshListener {
+
+            showLoading()
             contentLoader.fetchMore()
         }
         var scrollHandler: Job? = null
@@ -92,6 +93,7 @@ class ContentDisplay @JvmOverloads constructor(
     }
 
     fun showLoading() {
+
         swipeLayout.isRefreshing = true
     }
 
@@ -108,7 +110,7 @@ class ContentDisplay @JvmOverloads constructor(
     fun running() {
         if ((recyclerView.adapter as? DisplayablePagingAdapter)?.itemCount == 0) {
             //No Answer from server but no content->
-            showLoading()
+          //  showLoading()  //Do not display with plain running
         }
     }
 
@@ -134,9 +136,6 @@ class ContentDisplay @JvmOverloads constructor(
     private fun stateNoContent() {
         Log.d("stateNOCONTENT","ERROR")
 
-        noContentContainer.visibility=View.VISIBLE
-        errorContainer.visibility=View.GONE
-
         //errorHandler?.showErrorMessage(Constants.ERROR_NOCONTENT)
         hideLoading()
 
@@ -152,19 +151,15 @@ class ContentDisplay @JvmOverloads constructor(
 
     fun stateReady() {
         Log.d("stateREADY","ERROR")
-
-        noContentContainer.visibility=View.GONE
-        errorContainer.visibility=View.GONE
-
         hideLoading()
     }
 
     fun stateError() {
         Log.d("stateERROR","ERROR")
         if(getList()?.isNullOrEmpty() != false){
-            errorContainer.visibility=View.VISIBLE
+           // errorContainer.visibility=View.VISIBLE
         }
-        noContentContainer.visibility=View.GONE
+
 
         hideLoading()
     }

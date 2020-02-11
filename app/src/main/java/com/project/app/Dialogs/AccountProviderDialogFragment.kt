@@ -54,7 +54,7 @@ open class AccountProviderDialogFragment : QuestionControllerDialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
         var view = inflater.inflate(R.layout.fragment_account, null)
-        view.findViewById<View>(R.id.account_back).setOnClickListener { dismiss() }
+      //  view.findViewById<View>(R.id.account_back).setOnClickListener { dismiss() }
         parentView = view
         tabLayout = view.findViewById<TabLayout>(R.id.account_bnv)
 
@@ -62,7 +62,7 @@ open class AccountProviderDialogFragment : QuestionControllerDialogFragment() {
         recycler = view.findViewById(R.id.cd_content)
         swipeLayout = view.findViewById(R.id.cd_swipelayout)
         toolbar = view.findViewById(R.id.toolbar)
-        subscribe = view.findViewById(R.id.subscribe)
+        subscribe = view.findViewById(R.id.toolbarSubscripe)
         userName = view.findViewById(R.id.account_username)
         userDesc = view.findViewById(R.id.account_bio)
         userFollower = view.findViewById(R.id.account_followercount)
@@ -161,7 +161,7 @@ open class AccountProviderDialogFragment : QuestionControllerDialogFragment() {
                         parentView
                     )
 
-                contentLoader.enqueueContent(  Constants.CONTENT_USER_ASKED)
+                contentLoader.enqueueContent(  Constants.CONTENT_USER_ASKED,il)
             }
 
         } else {
