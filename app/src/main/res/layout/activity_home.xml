@@ -48,7 +48,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></FrameLayout>
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom">
 
+        <include
+            layout="@layout/snack_assistant_big"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cons"
         android:layout_width="match_parent"

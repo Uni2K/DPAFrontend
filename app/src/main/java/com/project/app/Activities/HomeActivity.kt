@@ -1,6 +1,5 @@
 package com.project.app.Activities
 
-import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
@@ -22,7 +21,7 @@ import com.airbnb.lottie.LottieAnimationView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.project.app.Bases.Assistant
+import com.project.app.Bases.AssistantBase
 import com.project.app.Bases.DesignBase
 import com.project.app.Bases.SocketBase
 import com.project.app.Bases.TextBase
@@ -74,6 +73,7 @@ class HomeActivity : AppCompatActivity() {
 
         findViewById<LottieAnimationView>(R.id.botStart).setOnClickListener {
             AssistantDialogFragment().show(supportFragmentManager,"assistant")
+
         }
 
 
@@ -101,6 +101,12 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun registerActivity() {
+       val ab= AssistantBase()
+           ab.setUpWithView(findViewById(R.id.botStart))
+       // ab.createInfoText(findViewById(R.id.master))
+
+
+
         //val viewModel = ViewModelProvider(this).get(MasterViewModel::class.java)
        // viewModel.contentSyncer.registerLifecycleOwner(this)
       //  viewModel.contentSyncer.connectSyncIndicator(findViewById(R.id.indicator_sync_update),findViewById(R.id.indicator_sync_content))

@@ -137,6 +137,20 @@
         <item name="android:colorForeground">#423F3939</item>
     </style>
 
+    <style name="ToolTipAssistant" >
+        <item name="ttlm_backgroundColor">@color/themeColorAssistant</item>
+        <item name="ttlm_padding">15dp</item>
+        <item name="ttlm_elevation">3dp</item>
+        <item name="android:textAppearance">@style/AssistantTextAppearance</item>
+
+
+    </style>
+    <style name="AssistantTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">#fff</item>
+    </style>
+
+
 
     <style name="UserSwitch" parent="Theme.AppCompat.Light">
         <!-- active thumb & track color (30% transparency) -->

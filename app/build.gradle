@@ -86,7 +86,7 @@ dependencies {
     implementation 'jp.wasabeef:picasso-transformations:2.2.1'
     implementation 'net.yslibrary.keyboardvisibilityevent:keyboardvisibilityevent:2.3.0'
 
-
+    implementation 'it.sephiroth.android.library.targettooltip:target-tooltip-library:2.0.3'
     implementation 'cl.jesualex.android:stooltip:1.0'
     implementation 'com.airbnb.android:lottie:3.3.1'
 
