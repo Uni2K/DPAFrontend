@@ -124,7 +124,7 @@ class QuestionFullDialogFragment : QuestionControllerDialogFragment() {
         answer2 = v.findViewById(R.id.answer2)
         answer3 = v.findViewById(R.id.answer3)
         answer4 = v.findViewById(R.id.answer4)
-        errorHandler = ErrorHandler(activity, this,v)
+        //errorHandler = ErrorHandler(activity, this, v, this)
 
         setQuestion()
 

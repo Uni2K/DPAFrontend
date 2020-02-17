@@ -164,5 +164,9 @@ class ContentDisplay @JvmOverloads constructor(
         hideLoading()
     }
 
+    fun getParentView(): View {
+        return swipeLayout
+    }
+
 
 }

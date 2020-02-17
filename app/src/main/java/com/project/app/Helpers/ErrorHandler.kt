@@ -1,10 +1,10 @@
 package com.project.app.Helpers
 
-import android.util.Log
 import android.view.View
 import androidx.lifecycle.*
 import com.google.android.material.snackbar.Snackbar
 import com.project.app.Activities.HomeActivity
+import com.project.app.Bases.AssistantBase
 import com.project.app.CustomViews.ExpandableSnackBar
 import com.project.app.Objects.ErrorC
 
@@ -23,7 +23,7 @@ import com.project.app.Objects.ErrorC
 class ErrorHandler(
     val parent: HomeActivity,
     lifecycleOwner: LifecycleOwner,
-    private val parentView: View
+    private val assistantBase: AssistantBase
 ) :
     ConnectionStateMonitor.OnNetworkAvailableCallbacks {
     override fun onPositive() {
@@ -34,7 +34,6 @@ class ErrorHandler(
         showErrorMessage(Constants.ERROR_NOCONNECTION)
     }
 
-    private var snackbar: ExpandableSnackBar? = null
     private var previousErrorC: ErrorC ?= null
     private var connectionStateMonitor: ConnectionStateMonitor? = null
 
@@ -90,13 +89,8 @@ class ErrorHandler(
       }
 
         previousErrorC = null
-        snackbar?.let {
-            if (it.isShown) {
-                it.dismiss()
-                snackbar = null
-            }
+        assistantBase.hideErrorMessage()
 
-        }
     }
 
 
@@ -118,24 +112,16 @@ class ErrorHandler(
             }
         }
         if(!showNew)return
-        snackbar?.let {
-            if (it.isShown) {
-                it.dismiss()
-            }
-
-        }
+        assistantBase.hideErrorMessage()
         previousErrorC = error
-        snackbar =
-            ExpandableSnackBar.make(parentView)
 
-       snackbar?.let {
+
+
           previousErrorC?.let { im->
-              it.duration=duration
-              it.setError(im)
-              it.show()
+              assistantBase.showErrorMessage(im)
 
 
-          }
+
 
        }
 

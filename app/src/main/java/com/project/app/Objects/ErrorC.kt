@@ -149,7 +149,7 @@ data class ErrorC (val code: Int, val text: String?, val hint: String?, val impo
 
         }
 
-        private fun str(context: Context, id: Int): String {
+         fun str(context: Context, id: Int): String {
             return context.getString(id)
         }
     }

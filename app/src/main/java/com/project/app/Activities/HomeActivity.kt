@@ -34,6 +34,7 @@ import com.project.app.Helpers.Constants.Companion.CONTENT_TOPICS
 import com.project.app.Helpers.Constants.Companion.CONTENT_TRENDING
 import com.project.app.Helpers.CustomBottomSheetBehavior
 import com.project.app.Helpers.MasterViewModel
+import com.project.app.Objects.ErrorC
 import com.project.app.Objects.User
 import com.project.app.R
 import kotlinx.coroutines.Dispatchers
@@ -50,6 +51,7 @@ class HomeActivity : AppCompatActivity() {
     lateinit var bottomNavigationView: BottomNavigationView
     //Misc
     var bottomSheetHidden = false
+    lateinit var ab:AssistantBase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         DesignBase.setNavigationBarColor(this, window, R.color.hintBackgroundColor)
@@ -59,8 +61,10 @@ class HomeActivity : AppCompatActivity() {
 
 
 
-
         setContentView(R.layout.activity_home)
+
+        ab=AssistantBase(this,this, findViewById(R.id.master))
+
         loadToolbar()
         initFeed()
         setUpTriggers()
@@ -72,22 +76,31 @@ class HomeActivity : AppCompatActivity() {
 
 
         findViewById<LottieAnimationView>(R.id.botStart).setOnClickListener {
-            AssistantDialogFragment().show(supportFragmentManager,"assistant")
-
+           // AssistantDialogFragment().show(supportFragmentManager,"assistant")
+            ab.showNewContentNotifier(null)
         }
 
 
-
+        ab.setUpAssistantSnackbar(findViewById(R.id.assistant_snackbar))
+        ab.hasBNV=true
         bottomSheet = findViewById(R.id.cons)
         FAB = findViewById(R.id.fabs)
         FAB.setOnClickListener {
-                QuestionCreator().show(supportFragmentManager, "CreatorIntro")
+           //     QuestionCreator().show(supportFragmentManager, "CreatorIntro")
 
+            if(ab.snackbarVisible()){
+                ab.hideErrorMessage()
+            }else{
+                ab.showErrorMessage(ErrorC(
+                    301,
+                    ErrorC.str(this, R.string.ERROR_UNDEFINED),
+                    ErrorC.str(this, R.string.ERROR_UNDEFINED_HINT),
+                    Constants.IMPORTANCE_LVL1
+                ))
+            }
         }
 
-      /*  findViewById<ImageView>(R.id.search_sheet).setOnClickListener {
-            SearchFragment().show(supportFragmentManager, "search")
-        }*/
+
 
         val frag = MainContentFragment()
         supportFragmentManager.beginTransaction()
@@ -101,7 +114,6 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun registerActivity() {
-       val ab= AssistantBase()
            ab.setUpWithView(findViewById(R.id.botStart))
        // ab.createInfoText(findViewById(R.id.master))
 

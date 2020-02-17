@@ -9,6 +9,7 @@ import androidx.lifecycle.*
 import androidx.paging.PagedList
 import com.project.app.Activities.HomeActivity
 import com.project.app.Adapters.DisplayablePagingAdapter
+import com.project.app.Bases.AssistantBase
 import com.project.app.CustomViews.ContentDisplay
 import com.project.app.Interfaces.QuestionController
 import com.project.app.Objects.ContentModel
@@ -35,8 +36,9 @@ class ContentLoader(
     var isFullyReady=MutableLiveData<Boolean>(false)
 
     //Handler
-    var errorHandler: ErrorHandler? = null
-    var notificationHandler: NotificationHandler? = null
+
+    var assistantBase:AssistantBase?=null
+
 
 
     //Views & Adapter
@@ -129,20 +131,22 @@ class ContentLoader(
 
     private fun setUpHandler() {
 
-        errorHandler = ErrorHandler(parentActivity, lifeCycleOwner, contentDisplay)
 
         val inflater = AsyncLayoutInflater(parentActivity)
 
         GlobalScope.launch(Dispatchers.Main) {
             delay(5000)
-            inflater.inflate(
+            assistantBase= AssistantBase(parentActivity, lifeCycleOwner, contentDisplay)
+
+        /*    inflater.inflate(
                 R.layout.update_notifier, contentDisplay
             ) { view, resid, parent ->
                contentDisplay.addView(view)
 
-                notificationHandler =
-                  NotificationHandler(this@ContentLoader, parentActivity, lifeCycleOwner,contentDisplay)
-            }
+
+
+
+            }*/
 
         }
     }
@@ -274,7 +278,7 @@ class ContentLoader(
             lifeCycleOwner,
             Observer<Pair<Int, QuestionStackInfo>> {
                 if (it.first != 0) {
-                    notificationHandler?.setNewContentNotifier(it)
+                   assistantBase?.showNewContentNotifier(it)
 
                 }
 
