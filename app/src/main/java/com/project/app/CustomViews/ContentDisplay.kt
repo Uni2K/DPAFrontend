@@ -9,6 +9,7 @@ import androidx.annotation.MainThread
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.LifecycleOwner
 import androidx.paging.PagedList
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.project.app.Activities.HomeActivity
@@ -39,8 +40,7 @@ class ContentDisplay @JvmOverloads constructor(
             resources.getColor(android.R.color.holo_orange_light, null),
             resources.getColor(android.R.color.holo_red_light, null)
         )
-        // addView(v)
-
+        recyclerView.layoutManager = LinearLayoutManager(context)
     }
 
     public fun setUp(contentLoader: ContentLoader) {

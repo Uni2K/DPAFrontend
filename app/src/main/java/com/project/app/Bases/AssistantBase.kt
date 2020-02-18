@@ -1,21 +1,19 @@
 package com.project.app.Bases
 
 import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
 import android.animation.ValueAnimator
-import android.content.Context
 import android.util.DisplayMetrics
-import android.view.Gravity
-import android.view.LayoutInflater
+import android.util.Log
 import android.view.View
+import android.view.ViewAnimationUtils
 import android.widget.FrameLayout
-import android.widget.LinearLayout
-import android.widget.PopupWindow
-import androidx.fragment.app.Fragment
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.lifecycle.LifecycleOwner
 import com.airbnb.lottie.LottieAnimationView
+import com.google.android.material.appbar.AppBarLayout
 import com.project.app.Activities.HomeActivity
-import com.project.app.CustomViews.ContentDisplay
-import com.project.app.CustomViews.ExpandableSnackBar
 import com.project.app.Helpers.ErrorHandler
 import com.project.app.Objects.ErrorC
 import com.project.app.Objects.QuestionStackInfo
@@ -23,6 +21,7 @@ import com.project.app.R
 import it.sephiroth.android.library.xtooltip.ClosePolicy
 import it.sephiroth.android.library.xtooltip.Tooltip
 import java.lang.Exception
+import kotlin.math.max
 
 
 /**
@@ -39,10 +38,14 @@ class AssistantBase(
     var errorHandler: ErrorHandler? = ErrorHandler(parentActivity,lifeCycleOwner,this)
 
     //Views
-    var lottieAnimationView: LottieAnimationView? = null
-    var snackBar: FrameLayout? = null
+    var anchor: LottieAnimationView? = null
+    var bottomBar: FrameLayout? = null
+    var topBar:FrameLayout?=null
+    var topAppBarLayout:AppBarLayout?=null
+
     var bnvExpander:View?=null
-    val DIMEN_TRANSY_HIDDEN: Float = 112.dpToPx(parentActivity.resources.displayMetrics).toFloat()
+    val DIMEN_TRANSY_HIDDEN_BOTTOM: Float = 112.dpToPx(parentActivity.resources.displayMetrics).toFloat()
+    val DIMEN_TRANSY_HIDDEN_TOP: Float = -112.dpToPx(parentActivity.resources.displayMetrics).toFloat()
 
 
     //Animators
@@ -51,31 +54,67 @@ class AssistantBase(
 
     //config
     var hasBNV=true //If not-> Other margin
-    var hasButton=true //If has a opener button, if not no info texts
+    var hasAnchor=true //If has a opener button, if not no info texts
+    var hasMovableTopAppBar=true
+
 
     fun Int.dpToPx(displayMetrics: DisplayMetrics): Int = (this * displayMetrics.density).toInt()
+    fun Int.pxToDp(displayMetrics: DisplayMetrics): Int = (this / displayMetrics.density).toInt()
 
 
     fun setUpWithView(view: LottieAnimationView) {
-        this.lottieAnimationView = view
+        this.anchor = view
     }
 
 
-    fun setUpAssistantSnackbar(parent: FrameLayout) {
-        this.snackBar = parent
+    fun registerBottombar(parent: FrameLayout) {
+        this.bottomBar = parent
         this.bnvExpander=parent.findViewById(R.id.bnvExpander)
-        snackBar?.translationY=DIMEN_TRANSY_HIDDEN
-        snackBar?.visibility=View.VISIBLE
+        bottomBar?.translationY=DIMEN_TRANSY_HIDDEN_BOTTOM
+
+    }
+    fun registerAppBarLayout(appBarLayout: AppBarLayout){
+        this.topAppBarLayout=appBarLayout
+        initTopAppBarBehaviour()
+    }
+
+    private fun initTopAppBarBehaviour() {
+
+        topAppBarLayout?.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
+            if(hasMovableTopAppBar){
+                val distanceToMove= max(verticalOffset, (-32).dpToPx(parentActivity.resources.displayMetrics))
+                val minTranslationY:Float= (-56).dpToPx(parentActivity.resources.displayMetrics).toFloat()
+                val percentage=1.0-(verticalOffset/minTranslationY)
+
+                topBar?.translationY= distanceToMove.toFloat()
+                val triangle=topBar?.findViewById<View>(R.id.triangle)
+               triangle?.scaleY= percentage.toFloat()
+               triangle?.pivotY= triangle?.height?.toFloat()?:0f
+            }
+        })
+    }
+
+    fun registerTopbar(parent: FrameLayout) {
+        this.topBar = parent
+        initTopbarBehaviour()
+    }
+
+    private fun initTopbarBehaviour() {
+
+        topBar?.setOnClickListener {
+
+        Log.d("onClicked","DDD")
+        }
 
     }
 
 
     private fun initAnimators() {
-        snackBar?.let { snackBar ->
+       bottomBar?.let { snackBar ->
 
             snackbarHideAnimator = ValueAnimator.ofFloat(
                 snackBar.translationY,
-                DIMEN_TRANSY_HIDDEN
+                DIMEN_TRANSY_HIDDEN_BOTTOM
             )
             (snackbarHideAnimator as ValueAnimator?)?.addUpdateListener { it ->
                 snackBar.translationY = it.animatedValue.toString().toFloat()
@@ -89,7 +128,7 @@ class AssistantBase(
                 }
 
                 override fun onAnimationEnd(p0: Animator?) {
-                 //   snackBar.visibility = View.GONE
+                   snackBar.visibility = View.INVISIBLE
                 }
 
                 override fun onAnimationCancel(p0: Animator?) {
@@ -120,7 +159,7 @@ class AssistantBase(
                 }
 
                 override fun onAnimationStart(p0: Animator?) {
-                   // snackBar.visibility = View.VISIBLE
+                    snackBar.visibility = View.VISIBLE
                 }
             })
 
@@ -136,8 +175,8 @@ class AssistantBase(
 
 
     private fun createInfoText() {
-        parentView.post {
-            lottieAnimationView?.let {
+       anchor?.post {
+            anchor?.let {
 
                 val tooltip = Tooltip.Builder(it.context)
                     .anchor(it, 0, 0)
@@ -164,22 +203,29 @@ class AssistantBase(
 
     }
 
-    fun snackbarVisible(): Boolean {
-        return snackBar?.translationY == 0f
+    fun bottomBarVisible(): Boolean {
+        return bottomBar?.visibility == View.VISIBLE
     }
 
     fun showNewContentNotifier(it: Pair<Int, QuestionStackInfo>?) {
-       if(hasButton)
-        createInfoText()
+        configTopBar(it)
+        showTopBar()
+    }
+
+    private fun configTopBar(it: Pair<Int, QuestionStackInfo>?) {
+        topBar?.let {topBar->
+            val text = topBar.findViewById<TextView>(R.id.not_text)
+            text.text = "${it?.first} new Polls added!"
+        }
     }
 
     fun hideErrorMessage() {
-        hideBottomSnackbar()
+        hideBottomBar()
 
     }
 
-    private fun hideBottomSnackbar() {
-        if (snackbarShowAnimator != null) {
+    private fun hideBottomBar() {
+        if ( ::snackbarShowAnimator.isInitialized&& snackbarShowAnimator != null) {
             snackbarShowAnimator.cancel()
             initAnimators()
         }
@@ -191,12 +237,59 @@ class AssistantBase(
 
 
     fun showErrorMessage(err: ErrorC) {
-        configSnackbars(err)
-        showBottomSnackbar()
+        configBottomBar(err)
+        showBottomBar()
 
     }
 
-    private fun showBottomSnackbar() {
+     fun showTopBar() {
+        topBar?.visibility = View.INVISIBLE
+        val triangle=topBar?.findViewById<View>(R.id.triangle)
+
+        val cx:Double = topBar?.height?.toDouble() ?:0.0
+        val cy:Double =topBar?.width?.toDouble() ?:0.0
+
+        val finalRadius = Math.hypot(cx, cy).toFloat()
+
+        // create the animator for this view (the start radius is zero)
+        val anim = ViewAnimationUtils.createCircularReveal(topBar,
+            triangle?.x?.toInt()?:0, triangle?.x?.toInt()?:0, 0f, finalRadius)
+         anim.duration=900
+        // make the view visible and start the animation
+        topBar?.visibility = View.VISIBLE
+        anim.start()
+
+
+    }
+     fun hideTopBar() {
+        val triangle=topBar?.findViewById<View>(R.id.triangle)
+
+         val cx:Double = topBar?.height?.toDouble() ?:0.0
+         val cy:Double =topBar?.width?.toDouble() ?:0.0
+
+        val finalRadius = Math.hypot(cx, cy).toFloat()
+        val anim = ViewAnimationUtils.createCircularReveal(topBar, triangle?.x?.toInt()?:0, triangle?.x?.toInt()?:0,  finalRadius,0f)
+        anim.addListener(object : AnimatorListenerAdapter() {
+
+            override fun onAnimationEnd(animation: Animator) {
+                super.onAnimationEnd(animation)
+                topBar?.visibility = View.INVISIBLE
+            }
+        })
+         anim.duration=900
+
+        anim.start()
+
+
+    }
+
+     fun topBarVisible() :Boolean{
+        return topBar?.visibility==View.VISIBLE
+    }
+
+
+
+    private fun showBottomBar() {
         if ( ::snackbarHideAnimator.isInitialized && snackbarHideAnimator.isRunning) {
             snackbarHideAnimator.cancel()
 
@@ -210,16 +303,31 @@ class AssistantBase(
 
 
 
+
     /**
      * Set Error Content to Snackbars
      */
-    private fun configSnackbars(err: ErrorC) {
+    private fun configBottomBar(err: ErrorC) {
 
     if(hasBNV){
         bnvExpander?.visibility=View.VISIBLE
     }else  bnvExpander?.visibility=View.GONE
 
+        bottomBar?.let {bottomBar->
+            val textView: TextView = bottomBar.findViewById(R.id.text)
+            val close: ImageView =bottomBar.findViewById(R.id.close)
+            val buttonLeft: TextView = bottomBar.findViewById(R.id.buttonLeft)
 
+            textView.setText(err.text)
+            close.setOnClickListener { hideErrorMessage() }
+            err.hint?.let {
+                buttonLeft.visibility=View.VISIBLE
+                buttonLeft.setText(it)
+            }?:let { buttonLeft.visibility=View.GONE }
+
+            buttonLeft.setOnClickListener { err.solution.invoke() }
+
+        }
 
     }
 }

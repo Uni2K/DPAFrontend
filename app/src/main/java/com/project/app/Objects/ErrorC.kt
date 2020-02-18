@@ -1,11 +1,12 @@
 package com.project.app.Objects
 
 import android.content.Context
+import android.widget.Toast
 import com.project.app.Helpers.Constants
 import com.project.app.R
 
 
-data class ErrorC (val code: Int, val text: String?, val hint: String?, val importance: Int, val retryPossible: Boolean=false) {
+data class ErrorC (val code: Int, val text: String?, val hint: String?, val importance: Int, val retryPossible: Boolean=false, val solution:() -> Unit) {
 
 
 
@@ -63,15 +64,18 @@ data class ErrorC (val code: Int, val text: String?, val hint: String?, val impo
                         code,
                         str(c, R.string.ERROR_NOCONNECTION),
                         str(c, R.string.ERROR_NOCONNECTION_HINT),
-                        Constants.IMPORTANCE_LVL3
-                    )
+                        Constants.IMPORTANCE_LVL3,solution = {
+                        Toast.makeText(c,"WLAN ACTIVATING!!!",Toast.LENGTH_SHORT).show()
+                        })
                 }
                 Constants.ERROR_UNDEFINED -> {
                     return ErrorC(
                         code,
                         str(c, R.string.ERROR_UNDEFINED),
                         str(c, R.string.ERROR_UNDEFINED_HINT),
-                        Constants.IMPORTANCE_LVL1
+                        Constants.IMPORTANCE_LVL1,solution = {
+
+                        }
                     )
                 }
                 Constants.ERROR_TOKENWRONG -> {
@@ -79,7 +83,9 @@ data class ErrorC (val code: Int, val text: String?, val hint: String?, val impo
                         code,
                         str(c, R.string.ERROR_TOKENWRONG),
                         str(c, R.string.ERROR_TOKENWRONG_HINT),
-                        Constants.IMPORTANCE_LVL1
+                        Constants.IMPORTANCE_LVL1,solution = {
+
+                        }
                     )
                 }
                 Constants.ERROR_TIMEOUT -> {
@@ -87,7 +93,9 @@ data class ErrorC (val code: Int, val text: String?, val hint: String?, val impo
                         code,
                         str(c, R.string.ERROR_SOCKET_TIMEOUT),
                         str(c, R.string.ERROR_SOCKET_TIMEOUT_HINT),
-                        Constants.IMPORTANCE_LVL2
+                        Constants.IMPORTANCE_LVL2,solution = {
+
+                        }
                     )
                 }
                 Constants.ERROR_NOUSERFOUND -> {
@@ -95,7 +103,9 @@ data class ErrorC (val code: Int, val text: String?, val hint: String?, val impo
                         code,
                         str(c, R.string.ERROR_NOUSERFOUND),
                         str(c, R.string.ERROR_NOUSERFOUND_HINT),
-                        Constants.IMPORTANCE_LVL1
+                        Constants.IMPORTANCE_LVL1,solution = {
+
+                        }
                     )
                 }
                 Constants.ERROR_DUPLICATENAME -> {
@@ -103,7 +113,9 @@ data class ErrorC (val code: Int, val text: String?, val hint: String?, val impo
                         code,
                         str(c, R.string.ERROR_DUPLICATENAME),
                         str(c, R.string.ERROR_DUPLICATENAME_HINT),
-                        Constants.IMPORTANCE_LVL1
+                        Constants.IMPORTANCE_LVL1,solution = {
+
+                        }
                     )
                 }
                 Constants.ERROR_DUPLICATEEMAIL -> {
@@ -111,7 +123,9 @@ data class ErrorC (val code: Int, val text: String?, val hint: String?, val impo
                         code,
                         str(c, R.string.ERROR_DUPLICATEMAIL),
                         str(c, R.string.ERROR_DUPLICATEMAIL_HINT),
-                        Constants.IMPORTANCE_LVL1
+                        Constants.IMPORTANCE_LVL1,solution = {
+
+                        }
                     )
                 }
                 Constants.ERROR_NOCONTENT -> {
@@ -119,7 +133,9 @@ data class ErrorC (val code: Int, val text: String?, val hint: String?, val impo
                         code,
                         str(c, R.string.ERROR_NOCONTENT),
                         str(c, R.string.ERROR_NOCONTENT_HINT),
-                        Constants.IMPORTANCE_LVL1
+                        Constants.IMPORTANCE_LVL1,solution = {
+
+                        }
                     )
                 }
                 Constants.ERROR_NOQUESTION -> {
@@ -127,7 +143,9 @@ data class ErrorC (val code: Int, val text: String?, val hint: String?, val impo
                         code,
                         str(c, R.string.ERROR_NOQUESTION),
                         str(c, R.string.ERROR_NOQUESTION_HINT),
-                        Constants.IMPORTANCE_LVL1
+                        Constants.IMPORTANCE_LVL1,solution = {
+
+                        }
                     )
                 }
                 Constants.ERROR_ANSWERINDEX -> {
@@ -135,7 +153,9 @@ data class ErrorC (val code: Int, val text: String?, val hint: String?, val impo
                         code,
                         str(c, R.string.ERROR_ANSWERINDEX),
                         str(c, R.string.ERROR_ANSWERINDEX_HINT),
-                        Constants.IMPORTANCE_LVL1
+                        Constants.IMPORTANCE_LVL1,solution = {
+
+                        }
                     )
                 }
 
@@ -144,7 +164,9 @@ data class ErrorC (val code: Int, val text: String?, val hint: String?, val impo
                 code,
                 str(c, R.string.ERROR_UNDEFINED),
                 str(c, R.string.ERROR_UNDEFINED_HINT),
-                Constants.IMPORTANCE_LVL1
+                Constants.IMPORTANCE_LVL1,solution = {
+
+                }
             )
 
         }

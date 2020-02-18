@@ -21,7 +21,7 @@ import com.project.app.R
 import kotlinx.coroutines.*
 
 class ContentLoader(
-    val lifeCycleOwner: Fragment,
+    val lifeCycleOwner: LifecycleOwner,
     var parentActivity: HomeActivity,
     parentView: View
 

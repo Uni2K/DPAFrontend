@@ -32,10 +32,10 @@ class ExpandableSnackBar(
 
         fun make(view: View):ExpandableSnackBar {
             // First we find a suitable parent for our custom view
-            val parent = view.findSuitableParent() ?: throw IllegalArgumentException(
-                "No suitable parent found from the given view. Please provide a valid view."
-            )
-
+         //   val parent = view.findSuitableParent() ?: throw IllegalArgumentException(
+           //     "No suitable parent found from the given view. Please provide a valid view."
+            //)
+                val parent:ViewGroup= view as ViewGroup
             // We inflate our custom view
             val customView = LayoutInflater.from(view.context).inflate(
                 R.layout.snackbar_expandable,

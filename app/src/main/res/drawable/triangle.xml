@@ -3,12 +3,12 @@
     android:height="100dp"
     android:width="100dp"
     android:viewportHeight="100"
-    android:viewportWidth="50" >
+    android:viewportWidth="70" >
     <group
         android:name="triableGroup">
         <path
             android:name="triangle"
             android:fillColor="@color/themeColorAssistant"
-            android:pathData="m 0,0 l 50,100 -100,0 z" />
+            android:pathData="m 0,0 l 80,100 -100,0  z" />
     </group>
 </vector>

@@ -8,20 +8,21 @@
     android:background="@color/primaryColor">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/mainAppBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:contentInsetLeft="0dp"
             android:contentInsetStart="0dp"
-            app:contentInsetLeft="0dp"
-            app:contentInsetStart="0dp"
-            android:contentInsetRight="0dp"
+            android:contentInsetLeft="0dp"
             android:contentInsetEnd="0dp"
-            app:contentInsetRight="0dp"
+            android:contentInsetRight="0dp"
             app:contentInsetEnd="0dp"
+            app:contentInsetLeft="0dp"
+            app:contentInsetRight="0dp"
+            app:contentInsetStart="0dp"
             app:layout_scrollFlags="scroll|enterAlways">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -34,19 +35,21 @@
                     android:layout_height="56dp" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.appcompat.widget.Toolbar>
+
     </com.google.android.material.appbar.AppBarLayout>
 
 
-    <FrameLayout
-        android:id="@+id/container_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:animateLayoutChanges="true"
+
+
+    <com.project.app.CustomViews.ContentDisplay xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/cd_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></FrameLayout>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </com.project.app.CustomViews.ContentDisplay>
+
+
 
     <FrameLayout
         android:id="@+id/assistant_snackbar"
@@ -90,6 +93,23 @@
         app:shapeAppearanceOverlay="@style/CreateShapeOverlay"
         app:tint="@color/white" />
 
+    <FrameLayout
+        android:id="@+id/assistant_notifier"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:layout_marginTop="28dp"
+        android:clickable="true"
+        android:elevation="20dp"
+        android:outlineProvider="none"
+        android:visibility="invisible">
+
+        <include
+            layout="@layout/update_notifier"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp" />
+    </FrameLayout>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

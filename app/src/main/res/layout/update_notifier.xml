@@ -4,77 +4,98 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/not_parent"
     android:layout_width="wrap_content"
-    android:layout_height="36dp"
+    android:layout_height="wrap_content"
     android:layout_centerHorizontal="true"
     android:layout_gravity="center_horizontal"
-    android:layout_marginTop="8dp"
     android:animateLayoutChanges="true"
-    android:background="@drawable/shape_round"
-    android:backgroundTint="@color/secondaryColor"
-    android:elevation="5dp"
+    android:clipToPadding="true"
+    android:elevation="0dp"
     android:orientation="vertical"
+    android:padding="8dp"
     android:translationY="0dp">
 
-    <TextView
-        android:id="@+id/not_text"
-        android:layout_width="wrap_content"
-        android:layout_height="36dp"
-        android:layout_marginStart="16dp"
-        android:elevation="200dp"
-        android:gravity="center_vertical"
-        android:includeFontPadding="false"
-        android:outlineProvider="none"
-        android:paddingLeft="4dp"
-        android:paddingRight="4dp"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/not_ic1"
+    <View
+        android:id="@+id/triangle"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:background="@drawable/triangle"
+        android:elevation="4dp"
+        android:translationY="5dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:layout_width="16dp"
-        android:layout_height="16dp"
-        android:layout_marginStart="6dp"
-        android:layout_marginEnd="4dp"
-        android:elevation="200dp"
-        android:outlineProvider="none"
-        android:rotation="90"
-        android:tint="@color/white"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/not_text"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/round_arrow_back_24" />
-
-    <ImageView
-        android:id="@+id/not_ic1"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="6dp"
-        android:elevation="200dp"
-        android:outlineProvider="none"
-        android:tint="@color/answerActivated"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/not_ic2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/shape_round" />
-
-    <ImageView
-        android:id="@+id/not_ic2"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="4dp"
-        android:elevation="200dp"
-        android:outlineProvider="none"
-        android:tint="@color/design_default_color_secondary"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="@+id/not_ic1"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/notifier_child"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_5_tl"
+        android:backgroundTint="@color/themeColorAssistant"
+        android:elevation="4dp"
+        android:foreground="?attr/selectableItemBackground"
+        android:paddingRight="8dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/not_ic1"
-        app:srcCompat="@drawable/shape_round" />
+        app:layout_constraintTop_toBottomOf="@+id/triangle">
+
+        <ImageView
+            android:id="@+id/not_ic2"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="8dp"
+            android:elevation="200dp"
+            android:outlineProvider="none"
+            android:tint="@color/design_default_color_secondary"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/not_ic1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/not_ic1"
+            app:srcCompat="@drawable/shape_round" />
+
+        <ImageView
+            android:id="@+id/not_ic1"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="8dp"
+            android:elevation="200dp"
+            android:outlineProvider="none"
+            android:tint="@color/answerActivated"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/not_text"
+            app:srcCompat="@drawable/shape_round" />
+
+        <TextView
+            android:id="@+id/not_text"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginStart="8dp"
+            android:elevation="200dp"
+            android:gravity="center_vertical"
+            android:includeFontPadding="false"
+            android:outlineProvider="none"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:text="10 new Questions"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/not_ic1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="8dp"
+            android:elevation="200dp"
+            android:outlineProvider="none"
+            android:rotation="90"
+            android:tint="@color/white"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/not_text"
+            app:layout_constraintStart_toEndOf="@+id/not_text"
+            app:layout_constraintTop_toTopOf="@+id/not_text"
+            app:srcCompat="@drawable/round_arrow_back_24" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import cl.jesualex.stooltip.Position
 import cl.jesualex.stooltip.Tooltip
 import com.airbnb.lottie.LottieAnimationView
@@ -27,14 +28,14 @@ import com.project.app.Bases.SocketBase
 import com.project.app.Bases.TextBase
 import com.project.app.Dialogs.*
 import com.project.app.Fragments.*
-import com.project.app.Helpers.Constants
+import com.project.app.Helpers.*
 import com.project.app.Helpers.Constants.Companion.CONTENT_FEED
 import com.project.app.Helpers.Constants.Companion.CONTENT_NEW
 import com.project.app.Helpers.Constants.Companion.CONTENT_TOPICS
 import com.project.app.Helpers.Constants.Companion.CONTENT_TRENDING
-import com.project.app.Helpers.CustomBottomSheetBehavior
-import com.project.app.Helpers.MasterViewModel
+import com.project.app.Interfaces.QuestionController
 import com.project.app.Objects.ErrorC
+import com.project.app.Objects.Question
 import com.project.app.Objects.User
 import com.project.app.R
 import kotlinx.coroutines.Dispatchers
@@ -43,7 +44,7 @@ import kotlinx.coroutines.launch
 import net.yslibrary.android.keyboardvisibilityevent.util.UIUtil.hideKeyboard
 import net.yslibrary.android.keyboardvisibilityevent.util.UIUtil.showKeyboard
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity(), QuestionController {
 
     //Views
     lateinit var FAB: FloatingActionButton
@@ -77,36 +78,43 @@ class HomeActivity : AppCompatActivity() {
 
         findViewById<LottieAnimationView>(R.id.botStart).setOnClickListener {
            // AssistantDialogFragment().show(supportFragmentManager,"assistant")
-            ab.showNewContentNotifier(null)
+
+            if(ab.topBarVisible()){
+                ab.hideTopBar()
+            }else{
+                ab.showTopBar()
+            }
+
         }
 
 
-        ab.setUpAssistantSnackbar(findViewById(R.id.assistant_snackbar))
+
+
+
+
+        ab.registerBottombar(findViewById(R.id.assistant_snackbar))
+        ab.registerAppBarLayout(findViewById(R.id.mainAppBar))
+        ab.registerTopbar(findViewById(R.id.assistant_notifier))
+
         ab.hasBNV=true
         bottomSheet = findViewById(R.id.cons)
         FAB = findViewById(R.id.fabs)
         FAB.setOnClickListener {
            //     QuestionCreator().show(supportFragmentManager, "CreatorIntro")
 
-            if(ab.snackbarVisible()){
+            if(ab.bottomBarVisible()){
                 ab.hideErrorMessage()
             }else{
-                ab.showErrorMessage(ErrorC(
-                    301,
-                    ErrorC.str(this, R.string.ERROR_UNDEFINED),
-                    ErrorC.str(this, R.string.ERROR_UNDEFINED_HINT),
-                    Constants.IMPORTANCE_LVL1
-                ))
+                ab.showErrorMessage(  ErrorC.createError(Constants.ERROR_NOCONNECTION,this)
+                )
             }
         }
 
 
 
-        val frag = MainContentFragment()
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.container_list, frag, "content").commit()
 
 
+        loadFeed()
 
 
 
@@ -215,6 +223,7 @@ class HomeActivity : AppCompatActivity() {
 
             if (!bottomSheetHidden) {
                 hideBottomSheet()
+
                 bottomSheetHidden = true
 
             }
@@ -300,7 +309,7 @@ class HomeActivity : AppCompatActivity() {
     }
 
 
-    private fun loadContent(content: String) {
+   /* private fun loadContent(content: String) {
         val frag = MainContentFragment()
         val bundle = Bundle()
         bundle.putString("initialContent", content)
@@ -309,7 +318,7 @@ class HomeActivity : AppCompatActivity() {
             .replace(R.id.container_list, frag, "content").commit()
 
 
-    }
+    }*/
 
 
 
@@ -403,7 +412,7 @@ class HomeActivity : AppCompatActivity() {
         bottomNavigationView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.main_feed -> {
-                    setContent(Constants.CONTENT_FEED)
+                 //   setContent(Constants.CONTENT_FEED)
                     true
                 }
                 R.id.main_search -> {
@@ -495,7 +504,7 @@ class HomeActivity : AppCompatActivity() {
 
     }
 
-    private fun setContent(type: String) {
+   /* private fun setContent(type: String) {
         Log.d("switchFragments","DATA: "+type)
         when (type) {
            CONTENT_FEED, CONTENT_TRENDING, CONTENT_NEW -> {
@@ -507,16 +516,21 @@ class HomeActivity : AppCompatActivity() {
                     (frag as MainContentFragment).setContent(type)
             }
 
-            CONTENT_TOPICS -> {
-                var frag =
-                    (supportFragmentManager.findFragmentByTag("topics"))
-                if (frag == null) frag = TopicOverviewFragment()
-                supportFragmentManager.beginTransaction()
-                    .replace(R.id.container_list, frag, "topics").commit()
-            }
-        }
-    }
 
+        }
+    }*/
+
+
+
+    fun loadFeed(){
+
+
+       val contentLoader =
+            ContentLoader(
+                this, this, findViewById(R.id.cd_parent)
+            )
+      contentLoader.enqueueContent(CONTENT_FEED)
+    }
 
     fun getSocketBase(): SocketBase {
         val viewModel = ViewModelProvider(this).get(MasterViewModel::class.java)
@@ -548,6 +562,21 @@ class HomeActivity : AppCompatActivity() {
         hideKeyboard(this)
         searchEdit.clearFocus()
         searchEdit.text.clear()
+
+    }
+
+    override fun showFullScreen(q: Question) {
+
+    }
+
+    override fun questionAnswered(
+        NumberOfAnswer: Int,
+        question: Question,
+        callback: RetrofitHelper.Companion.DisplayableListCallback
+    ) {
+    }
+
+    override fun userClicked(userid: String) {
 
     }
 
