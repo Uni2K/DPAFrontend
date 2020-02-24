@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/hintBackgroundColor"
+    tools:parentTag="android.widget.RelativeLayout">
+    <View
+        android:id="@+id/adap_background_answer"
+        android:layout_width="wrap_content"
+        android:layout_height="176dp"
+        android:layout_below="@id/aps_hd_statbar"
+        android:layout_alignParentBottom="false"
+        android:layout_marginStart="6dp"
+
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="6dp"
+        android:background="@drawable/shape_5"
+        android:elevation="3dp" />
+
+    <com.project.app.CustomViews.PresetAnswer
+        android:id="@+id/answer1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_answer"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="18dp"
+        android:layout_below="@id/aps_hd_statbar"
+        android:layout_marginEnd="14dp"
+        android:elevation="4dp"
+        android:outlineProvider="none">
+
+    </com.project.app.CustomViews.PresetAnswer>
+
+    <com.project.app.CustomViews.PresetAnswer
+        android:id="@+id/answer2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_answer"
+        android:layout_below="@id/answer1"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="14dp"
+        android:elevation="4dp"
+        android:outlineProvider="none">
+
+    </com.project.app.CustomViews.PresetAnswer>
+
+    <com.project.app.CustomViews.PresetAnswer
+        android:id="@+id/answer3"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_answer"
+        android:layout_below="@id/answer2"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="14dp"
+        android:elevation="4dp"
+        android:outlineProvider="none">
+
+    </com.project.app.CustomViews.PresetAnswer>
+
+    <com.project.app.CustomViews.PresetAnswer
+        android:id="@+id/answer4"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_answer"
+        android:layout_below="@id/answer3"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="14dp"
+        android:elevation="4dp"
+        android:outlineProvider="none">
+
+    </com.project.app.CustomViews.PresetAnswer></merge>

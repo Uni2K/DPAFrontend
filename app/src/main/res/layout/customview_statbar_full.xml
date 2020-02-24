@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+>
+
+    <ImageView
+        android:id="@+id/statbar_ic1"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_gravity="center_vertical"
+        app:srcCompat="@drawable/baseline_whatshot_24" />
+
+    <TextView
+        android:id="@+id/statbar_txt1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:text="TextView"
+        android:textSize="12sp" />
+
+    <ImageView
+        android:id="@+id/statbar_ic2"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="16dp"
+        app:srcCompat="@drawable/baseline_how_to_vote_24" />
+
+    <TextView
+        android:id="@+id/statbar_txt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:text="TextView"
+        android:textSize="12sp" />
+</LinearLayout>

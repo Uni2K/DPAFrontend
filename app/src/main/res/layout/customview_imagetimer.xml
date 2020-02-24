@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/imagetimer_image"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="3dp"
+        android:elevation="2dp"
+        android:outlineProvider="none"
+        app:layout_constraintStart_toStartOf="@+id/imagetimer_progressbar"
+        app:layout_constraintTop_toTopOf="@+id/imagetimer_progressbar"
+        app:srcCompat="@drawable/baseline_account_circle_24" />
+
+    <ProgressBar
+        android:id="@+id/imagetimer_progressbar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="46dp"
+        android:layout_height="46dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,7 +1,6 @@
 package com.project.app.Adapters
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.lifecycle.LifecycleOwner
@@ -12,11 +11,8 @@ import com.project.app.Interfaces.QuestionController
 import com.project.app.Objects.ContentModel
 import com.project.app.Paging.ContentModelDiffCallback
 import com.project.app.Paging.Displayable
-import com.project.app.Paging.NetworkState
 import com.project.app.R
-import com.project.app.ViewHolder.GeneralQuestionViewHolder
-import com.project.app.ViewHolder.GeneralUserViewHolder
-import com.project.app.ViewHolder.QuestionViewHolder
+import com.project.app.ViewHolder.*
 
 class DisplayablePagingAdapter(val localBase: LocalBase, val questionProvider: QuestionController, val lifecycleOwner: LifecycleOwner?=null) :
     PagedListAdapter<ContentModel, RecyclerView.ViewHolder>(diffCallback) {
@@ -34,7 +30,7 @@ class DisplayablePagingAdapter(val localBase: LocalBase, val questionProvider: Q
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 
-             when(viewType){
+      /*       when(viewType){
                  VIEWTYPE_QUESTION->{
                      val v = LayoutInflater.from(parent.context)
                          .inflate(R.layout.adapter_question_general, parent, false)
@@ -56,15 +52,27 @@ class DisplayablePagingAdapter(val localBase: LocalBase, val questionProvider: Q
         val v = LayoutInflater.from(parent.context)
             .inflate(R.layout.adapter_question_general, parent, false)
         return GeneralQuestionViewHolder(v, localBase, questionProvider).newInstance(lifecycleOwner)
+*/
+
+
+         val v = LayoutInflater.from(parent.context)
+             .inflate(R.layout.adapter_polls_skeleton, parent, false)
+         return MiscPollViewHolder(v,viewType)
+
+
 
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as? GeneralQuestionViewHolder)?.bind(ContentModel.toDisplayable(getItem(position))?.getQuestion())
-        (holder as? GeneralUserViewHolder)?.bind(ContentModel.toDisplayable(getItem(position))?.getUser())
+       // (holder as? GeneralQuestionViewHolder)?.bind(ContentModel.toDisplayable(getItem(position))?.getQuestion())
+     //   (holder as? GeneralUserViewHolder)?.bind(ContentModel.toDisplayable(getItem(position))?.getUser())
     }
 
     override fun getItemViewType(position: Int): Int {
+
+        if(position%2==0)return 1
+        return 0
+
         val displayable:Displayable?=ContentModel.toDisplayable(currentList?.get(position))
 
         when(displayable?.type){
@@ -171,10 +179,6 @@ class DisplayablePagingAdapter(val localBase: LocalBase, val questionProvider: Q
             }
         }
 
-
-    }
-
-    fun setNetworkState(it: NetworkState?) {
 
     }
 

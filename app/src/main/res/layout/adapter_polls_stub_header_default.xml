@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/hintBackgroundColor"
+    tools:parentTag="android.widget.RelativeLayout">
+
+
+
+    <com.project.app.CustomViews.ImageTimer
+        android:id="@+id/aps_hd_it"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:elevation="2dp"
+        android:outlineProvider="none" />
+
+    <TextView
+        android:id="@+id/aps_hd_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="3dp"
+        android:layout_toRightOf="@id/aps_hd_it"
+        android:includeFontPadding="false"
+        android:text="How are you, today?"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/aps_hd_subtext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/aps_hd_text"
+        android:layout_marginLeft="6dp"
+        android:layout_toRightOf="@id/aps_hd_it"
+        android:includeFontPadding="false"
+        android:text="by Generator"
+        android:textColor="@color/timestampColor"
+        android:textSize="11sp" />
+
+    <TextView
+        android:id="@+id/aps_hd_context"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/aps_hd_it"
+        android:layout_marginTop="6dp"
+        android:text="Lorem ipsum dolor sit amet, eget blandit ultrices ultrices felis sed aenean, tristique nostra commodo a venenatis, wisi a pulvinar scelerisque massa ac vitae. Nec m sean habitasse gravida "
+        android:textColor="@android:color/black"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/aps_hd_timestamp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/aps_hd_context"
+        android:text="11h ago"
+        android:textColor="@color/timestampColor"
+        android:textSize="12sp" />
+
+    <com.project.app.CustomViews.StatBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/aps_hd_timestamp"
+        android:id="@+id/aps_hd_statbar"
+        android:layout_marginTop="6dp" />
+
+
+</merge>
