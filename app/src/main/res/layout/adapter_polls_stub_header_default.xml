@@ -68,5 +68,12 @@
         android:id="@+id/aps_hd_statbar"
         android:layout_marginTop="6dp" />
 
+    <View
+        android:id="@+id/connector"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_below="@id/aps_hd_statbar"
+        android:layout_marginTop="8dp" />
+
 
 </merge>
