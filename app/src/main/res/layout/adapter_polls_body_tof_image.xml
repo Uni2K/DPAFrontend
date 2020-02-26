@@ -15,17 +15,40 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/aps_hd_statbar">
 
-        <com.project.app.CustomViews.PresetAnswerImage
-            android:id="@+id/answer1"
+        <ImageView
+            android:id="@+id/imageView14"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:elevation="4dp"
-            android:outlineProvider="none"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/test" />
+
+        <com.project.app.CustomViews.PresetAnswerTOF
+            android:id="@+id/answer1"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:elevation="4dp"
+            app:tofButton="negative"
+            android:outlineProvider="none"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintWidth_percent="0.5" />
 
+        <com.project.app.CustomViews.PresetAnswerTOF
+            android:id="@+id/answer2"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:elevation="4dp"
+            app:tofButton="positive"
+
+            android:outlineProvider="none"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@+id/answer1"
+            app:layout_constraintWidth_percent="0.5" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

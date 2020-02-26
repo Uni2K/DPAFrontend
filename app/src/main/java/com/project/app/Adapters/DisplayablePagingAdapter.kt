@@ -69,10 +69,12 @@ class DisplayablePagingAdapter(val localBase: LocalBase, val questionProvider: Q
     }
 
     override fun getItemViewType(position: Int): Int {
-
-        if(position%2==0)return 1
-        if(position%3==0)return 2
-        if(position%5==0)return 3
+        if(position%6==0)return 6
+        if(position%5==0)return 5
+        if(position%4==0)return 4
+        if(position%3==0)return 3
+        if(position%2==0)return 2
+        if(position%1==0)return 1
         return 0
 
         val displayable:Displayable?=ContentModel.toDisplayable(currentList?.get(position))

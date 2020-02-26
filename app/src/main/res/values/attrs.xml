@@ -70,4 +70,13 @@
         <attr name="dbelementTint" format="reference"/>
         <attr name="dbbackgroundTint" format="reference"/>
     </declare-styleable>
+
+
+    <declare-styleable name="customTOFButton">
+        <attr name="tofButton" format="string"/>
+    </declare-styleable>
+
+
+
+
 </resources>

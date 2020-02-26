@@ -74,7 +74,8 @@
     <color name="gradientFullview">#465B65</color>
     <color name="skeletonColor">#B9B8B8</color>
     <color name="editEnabled">#FFCCBC</color>
-
+    <color name="tof_pos">#00E676</color>
+    <color name="tof_neg">#F50057</color>
 
 
 </resources>

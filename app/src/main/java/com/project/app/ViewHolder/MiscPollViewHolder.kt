@@ -20,22 +20,39 @@ open class MiscPollViewHolder(
     init {
         val parent: ViewGroup = v.findViewById(R.id.skeletonContainer)
         parent.post {
-            val header = LayoutInflater.from(v.context)
-                .inflate(R.layout.adapter_polls_stub_header_default, parent, true)
-            if (viewType == 0) {
-                val body = LayoutInflater.from(v.context)
-                    .inflate(R.layout.adapter_polls_body_grid_4, parent, true)
-            } else if (viewType == 1){
-                val body = LayoutInflater.from(v.context)
-                    .inflate(R.layout.adapter_polls_body_list_expandable, parent, true)
-            }
-            else if (viewType == 2){
-                val body = LayoutInflater.from(v.context)
-                    .inflate(R.layout.adapter_polls_body_grid_2, parent, true)
-            }
-            else if (viewType == 3){
-                val body = LayoutInflater.from(v.context)
-                    .inflate(R.layout.adapter_polls_body_grid_3, parent, true)
+
+            when (viewType) {
+                0 -> {
+                    val header = LayoutInflater.from(v.context)
+                        .inflate(R.layout.adapter_polls_stub_header_default, parent, true)
+                    val body = LayoutInflater.from(v.context)
+                        .inflate(R.layout.adapter_polls_body_grid_4, parent, true)
+                }
+                1 -> {
+                    val header = LayoutInflater.from(v.context)
+                        .inflate(R.layout.adapter_polls_stub_header_default, parent, true)
+                    val body = LayoutInflater.from(v.context)
+                        .inflate(R.layout.adapter_polls_body_list_expandable, parent, true)
+                }
+                2 -> {
+                    val header = LayoutInflater.from(v.context)
+                        .inflate(R.layout.adapter_polls_stub_header_default, parent, true)
+                    val body = LayoutInflater.from(v.context)
+                        .inflate(R.layout.adapter_polls_body_grid_2, parent, true)
+                }
+                3 -> {
+                    val header = LayoutInflater.from(v.context)
+                        .inflate(R.layout.adapter_polls_stub_header_default, parent, true)
+                    val body = LayoutInflater.from(v.context)
+                        .inflate(R.layout.adapter_polls_body_grid_3, parent, true)
+                }
+                4 -> {
+                    val header = LayoutInflater.from(v.context)
+                        .inflate(R.layout.adapter_polls_stub_header_small, parent, true)
+                    val body = LayoutInflater.from(v.context)
+                        .inflate(R.layout.adapter_polls_body_tof_image, parent, true)
+                }
+                // parent.addView(header)
             }
             // parent.addView(header)
         }
